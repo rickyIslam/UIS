@@ -1,0 +1,96 @@
+﻿@using UIS.Models;
+@model IEnumerable<SemesterFee>
+@{
+    ViewBag.Title = "SemInfoList";
+    Layout = "~/Views/Shared/_AccountOfficerSideNav.cshtml";
+}
+
+<h2>DemoAccountOfficer</h2>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Paying For Semester</th>
+                    <th>Date/Time Of Submission</th>
+                    <th>Receipt ID</th>
+                    <th>Amount</th>
+                    <th>Check Bank Approval</th>
+                    <th>Unwanted Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (SemesterFee semesterFee in Model)
+                {
+
+
+                    <tr>
+
+                        <td><span class="pull-left glyphicon glyphicon-calendar">@semesterFee.studentId</span></td>
+
+                        @{
+                    string payForSemester = semesterFee.payForSemester;
+                    string payableSemester = null;
+                    if (payForSemester == "1")
+                    {
+                        payableSemester = "Level:1 / Semester:1";
+                    }
+                    if (payForSemester == "2")
+                    {
+                        payableSemester = "Level:1 / Semester:2";
+                    }
+                    if (payForSemester == "3")
+                    {
+                        payableSemester = "Level:2 / Semester:1";
+                    }
+                    if (payForSemester == "4")
+                    {
+                        payableSemester = "Level:2 / Semester:2";
+                    }
+                    if (payForSemester == "5")
+                    {
+                        payableSemester = "Level:3 / Semester:1";
+                    }
+                    if (payForSemester == "6")
+                    {
+                        payableSemester = "Level:3 / Semester:2";
+                    }
+                    if (payForSemester == "7")
+                    {
+                        payableSemester = "Level:4 / Semester:1";
+                    }
+                    if (payForSemester == "8")
+                    {
+                        payableSemester = "Level:4 / Semester:2";
+                    }
+                        }
+
+                        <td><span class="pull-left glyphicon">@payableSemester</span></td>
+                        <td><span class="pull-left glyphicon">@semesterFee.dateTime</span></td>
+                        <td><span class="pull-left glyphicon">@semesterFee.receiptId</span></td>
+                        <td><span class="pull-left glyphicon">@semesterFee.amount</span></td>
+
+                        <td>
+                            <a href="@Href("~/AccountOfficer/SemFeeInfoCheck/" + semesterFee.studentId + "?" + "semester=" + semesterFee.payForSemester + "&" + "amount=" + semesterFee.amount)">Varify Transaction</a>
+                        </td>
+
+                        <td>
+                            <a href="@Href("~/AccountOfficer/RemoveReq/" + semesterFee.studentId + "?" + "semester=" + semesterFee.payForSemester)">Remove Request</a>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+
+        </table>
+
+
+    </div>
+</div>

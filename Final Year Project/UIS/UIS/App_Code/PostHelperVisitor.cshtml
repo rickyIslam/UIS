@@ -1,0 +1,81 @@
+﻿@using UIS.Models;
+
+@helper Render(Post post, System.Web.Mvc.HtmlHelper html, bool showComment)
+{
+    var myVar = post.Image;
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span><b>@post.Title</b></span>
+        </div>
+
+        <div class="panel-body">
+            <span class="glyphicon glyphicon-pencil"> @post.UserName</span>
+            <span class="pull-right glyphicon glyphicon-calendar"> @post.DateTime</span>
+        </div>
+
+
+        @*<img src="~/Images/@myVar" class="img-thumbnail" alt="No Image Available" width="304" height="236">*@
+
+        @{
+            if (post.Image.Length == 0)
+            { <img src="~/Picture/noImage.jpg" alt="" class="img-thumbnail" width="304" height="236"> }
+            else
+            { <img src="~/Images/@myVar" alt="" class="img-thumbnail" width="304" height="236"> }
+        }
+
+
+        <p style="text-align:justify; padding:10px;" ><span>@post.Body</span></p>
+        <span><a href="@Href("~/Blog/Details/"+post.ID)"></a></span>
+
+
+    </div>
+
+
+
+    <form action="@Href("~/Blog/Comment/" +post.ID)" method="post">
+
+        <h2>এখানে মন্তব্য করুনঃ</h2>
+        <textarea disabled class="ckeditor" id="editor1" name="editor1" rows="10"></textarea>
+        <div>
+            &nbsp;
+            &nbsp;
+
+        </div>
+        <input disabled class="btn btn-success pull-right" id="Button1" name="Button1" type="submit" value="Post Your Comment" />
+    </form>
+
+    <h2 style="color:red;">দুঃখিত!!! মন্তব্য করতে চাইলে প্রথমত আপনাকে <a href="~/Account/loginstudent">লগিন</a> করতে হবে ... </h2>
+
+        <div> &nbsp; &nbsp; </div>
+    
+        if (showComment)
+        {
+
+  
+        <div class="panel panel-warning">
+            <div class="panel-heading"><h2>পোষ্টটিতে সর্বমোট মন্তব্য:<b>@post.Comments.Count().ToString()</b> টি</h2></div>
+            <div class="panel-body">
+
+                @foreach (Comment comment in post.Comments)
+                {
+                    <div>&nbsp;</div>
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <p><span><b>"@comment.UserName.ToString()" </b>মন্তব্য করেছেনঃ</span><span class="pull-right glyphicon glyphicon-calendar"> @comment.DateTime</span></p>
+
+                                <span><b>@comment.Body</b></span><br />
+
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        }
+
+}
+

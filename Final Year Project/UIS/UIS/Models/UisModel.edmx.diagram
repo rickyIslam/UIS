@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f8daf10fdaf04e859b3e5edb6f27872c" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="UISModel.AccountOfficeAuth" Width="1.5" PointX="12.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.adminStatu" Width="1.5" PointX="11.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.chat" Width="1.5" PointX="11.125" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.Comment" Width="1.5" PointX="6.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.cse_courseLayout" Width="1.5" PointX="12.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.DeanApprovedEntry" Width="1.5" PointX="2.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.DeanOfficeAuth" Width="1.5" PointX="11.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.enrolledStudent" Width="1.5" PointX="2.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.enrollmentStatu" Width="1.5" PointX="12.875" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.FiSemesterFee" Width="1.5" PointX="4.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.HallFee" Width="1.5" PointX="7.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.HallProvostAuth" Width="1.5" PointX="9.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.HallTransaction" Width="1.5" PointX="3.875" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.MailAuth" Width="1.5" PointX="13" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.NoticeBoard" Width="1.5" PointX="9.5" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.Post" Width="1.5" PointX="9.625" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.SemesterFee" Width="1.5" PointX="7.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.Student" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UISModel.TempBank" Width="1.5" PointX="7.875" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="UISModel.FK_Comments_Posts" ManuallyRouted="false" />
+        <AssociationConnector Association="UISModel.FK_DeanApprovedEntry_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="UISModel.FK_enrolledStudents_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="UISModel.FK_FiSemesterFee_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="UISModel.FK_HallFee_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="UISModel.FK_HallTransaction_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="UISModel.FK_Posts_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="UISModel.FK_SemesterFee_Student" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="UISModel.FiEnrolledStudent" Width="1.5" PointX="5.75" PointY="4.125" />
+        <AssociationConnector Association="UISModel.FK_FiEnrolledStudents_Student" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,97 @@
+﻿@using UIS.Models;
+@model IEnumerable<HallFee>
+@{
+    ViewBag.Title = "HallFeeInfoList";
+    Layout = "~/Views/Shared/_HallOfficerSideNav.cshtml";
+}
+
+<h1 style="text-align:center;text-decoration:underline;color:green;">List Of Enrolled Students</h1>
+<div>&nbsp;</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Paying For Semester</th>
+                    <th>Date/Time Of Submission</th>
+                    <th>Receipt ID</th>
+                    <th>Amount</th>
+                    <th>Check For Approval</th>
+                    <th>Unwanted Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (HallFee hallFee in Model)
+                {
+
+
+                    <tr>
+
+                        <td><span class="pull-left glyphicon glyphicon-calendar">@hallFee.studentId</span></td>
+
+                  @{
+                    string payForSemester = hallFee.payForSemester;
+                    string payableSemester = null;
+                    if (payForSemester == "1")
+                    {
+                        payableSemester = "Level:1 / Semester:1";
+                    }
+                    if (payForSemester == "2")
+                    {
+                        payableSemester = "Level:1 / Semester:2";
+                    }
+                    if (payForSemester == "3")
+                    {
+                        payableSemester = "Level:2 / Semester:1";
+                    }
+                    if (payForSemester == "4")
+                    {
+                        payableSemester = "Level:2 / Semester:2";
+                    }
+                    if (payForSemester == "5")
+                    {
+                        payableSemester = "Level:3 / Semester:1";
+                    }
+                    if (payForSemester == "6")
+                    {
+                        payableSemester = "Level:3 / Semester:2";
+                    }
+                    if (payForSemester == "7")
+                    {
+                        payableSemester = "Level:4 / Semester:1";
+                    }
+                    if (payForSemester == "8")
+                    {
+                        payableSemester = "Level:4 / Semester:2";
+                    }
+                        }
+
+                        <td><span class="pull-left glyphicon">@payableSemester</span></td>
+                        <td><span class="pull-left glyphicon">@hallFee.dateTime</span></td>
+                        <td><span class="pull-left glyphicon">@hallFee.receiptId</span></td>
+                        <td><span class="pull-left glyphicon">@hallFee.amount</span></td>
+
+                        <td>
+                            <a href="@Href("~/HallOfficer/HallFeeInfoCheck/" + hallFee.studentId + "?" + "semester=" + hallFee.payForSemester + "&" + "amount=" + hallFee.amount)">Varify Transaction</a>
+                        </td>
+
+                        <td>
+                            <a href="@Href("~/HallOfficer/RemoveReq/" + hallFee.studentId + "?" + "semester=" + hallFee.payForSemester)">Remove Request</a>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+
+        </table>
+
+
+    </div>
+</div>

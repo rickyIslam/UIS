@@ -1,0 +1,89 @@
+﻿@using UIS.Models;
+@model IEnumerable<Student>
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+}
+
+<h1 style="text-align:center; font-family:Century;text-decoration:underline;" >Student's Information From UIS Database</h1>
+<div>&nbsp;</div>
+
+@foreach (var item in Model)
+{
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-5">
+
+                <div class="row">
+                    <div>
+                        <img src="~/proPic/@Html.DisplayFor(modelItem=>item.Photo)" alt="" class="img-thumbnail" width="180" height="180">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+
+            </div>
+        </div>
+
+      
+
+        <h3 style="text-decoration:underline">Personal Information:</h3>
+        <div class="row">
+            <h4 class="pull-left">Full Name: <b style="color:green;">@Html.DisplayFor(modelItem => item.fullName) </b></h4>
+            <h4 class="pull-right">Nick Name: <b style="color:green;">@Html.DisplayFor(modelItem => item.nickName) </b></h4>
+        </div>
+
+        <div class="row">
+            <h4 class="pull-left">Date Of Birth: <b style="color:green;">@Html.DisplayFor(modelItem => item.Dob) </b></h4>
+            <h4 class="pull-right">Permanent Address: <b style="color:green;">@Html.DisplayFor(modelItem => item.Town) </b></h4>
+        </div>
+
+        <div class="row">
+            <h4 class="pull-left">Father's Name: <b style="color:green;">@Html.DisplayFor(modelItem => item.Father) </b></h4>
+            <h4 class="pull-right">Mother's Name: <b style="color:green;">@Html.DisplayFor(modelItem => item.Mother) </b></h4>
+        </div>
+
+        <div class="row">
+            <h4 class="pull-left">Email Address: <b style="color:green;">@Html.DisplayFor(modelItem => item.Email) </b></h4>
+            <h4 class="pull-right">Phone Number: <b style="color:green;">@Html.DisplayFor(modelItem => item.Phone) </b></h4>
+        </div>
+
+        <div class="row">
+            <h4 class="pull-left">Post Office: <b style="color:green;">@Html.DisplayFor(modelItem => item.Po) </b></h4>
+            <h4 class="pull-right">Police Station: <b style="color:green;">@Html.DisplayFor(modelItem => item.Ps) </b></h4>
+        </div>
+
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+
+        <h3 style="text-decoration:underline">Academic Information:</h3>
+        <div class="row">
+            <h4 class="pull-left">Student's Id: <b style="color:green;">@Html.DisplayFor(modelItem => item.studentId) </b></h4>
+            <h4 class="pull-right">Registration No: <b style="color:green;">@Html.DisplayFor(modelItem => item.Registration) </b></h4>
+        </div>
+
+        <div class="row">
+            <h4 class="pull-left">Faculty: <b style="color:green;">@Html.DisplayFor(modelItem => item.Faculty) </b></h4>
+            <h4 class="pull-right">Admission Session: <b style="color:green;">@Html.DisplayFor(modelItem => item.Session) </b></h4>
+        </div>
+
+        <div class="row">
+            <h4 class="pull-left">Hall: <b style="color:green;">@Html.DisplayFor(modelItem => item.Hall) </b></h4>
+            @*<h4 class="pull-right">Permanent Address: <b style="color:green;">@Html.DisplayFor(modelItem => item.parmanentAddress) </b></h4>*@
+        </div>
+
+
+    </div>
+
+    <h2>To Change Any Information Just Put A Message Here To <a style="color:green;">Controller...</a></h2>
+
+
+}
+

@@ -1,0 +1,143 @@
+﻿@using UIS.Models;
+@model IEnumerable<Student>
+
+@{
+    ViewBag.Title = "adminCard";
+    Layout = "~/Views/Shared/_admitCardHeader.cshtml";
+}
+
+
+
+    
+@{
+    foreach (var item in Model)
+    {
+
+
+        
+<div class="container">     
+    <div class="row">
+
+        <div class="pull-left">
+            <img src="~/Picture/pstu_logo.jpg" class="img-rounded" alt="pstu logo" width="100" height="100">
+        </div>
+
+
+
+        <div class="pull-right">
+            <img src="~/proPic/@item.Photo" alt="" class="img-thumbnail" width="100" height="100">
+        </div>
+
+    </div>
+
+    <div class="row">
+        <h3 style="text-align:center">Patuakhali Science and Technology University</h3>
+        <p style="text-align:center;">Dumki, Patuakhali- 8602</p>
+        <p style="text-align:center;"><b>ADMIT CARD</b></p>
+        <div>&nbsp;</div>
+
+        @{
+        string payableSemester = null;
+        string payForSemester = ViewBag.examSemester;
+        if (payForSemester == "1")
+        {
+            payableSemester = "Level:1 / Semester:1";
+        }
+        if (payForSemester == "2")
+        {
+            payableSemester = "Level:1 / Semester:2";
+        }
+        if (payForSemester == "3")
+        {
+            payableSemester = "Level:2 / Semester:1";
+        }
+        if (payForSemester == "4")
+        {
+            payableSemester = "Level:2 / Semester:2";
+        }
+        if (payForSemester == "5")
+        {
+            payableSemester = "Level:3 / Semester:1";
+        }
+        if (payForSemester == "6")
+        {
+            payableSemester = "Level:3 / Semester:2";
+        }
+        if (payForSemester == "7")
+        {
+            payableSemester = "Level:4 / Semester:1";
+        }
+        if (payForSemester == "8")
+        {
+            payableSemester = "Level:4 / Semester:2";
+
+        }
+        }
+      
+
+
+        <p style="text-align:center;"><b>@payForSemester th</b> Semester <b>@payableSemester</b> Final Exam Of <b>B.Sc Engg (CSE)</b></p>
+    </div>
+    <div>&nbsp;</div>
+    <div class="row">
+        <p style="font-family:'Times New Roman';font-size:large; text-align:justify; padding:20px;">
+
+            Name: <b>@item.fullName</b> ......  Registration No.<b>@item.Registration</b> ...... Session: <b>@item.Session</b> ...... Examination Roll No. <b>@item.studentId</b> ......
+            Date Of Examination: <b>@ViewBag.examDate</b>
+
+        </p>
+    </div>
+
+
+
+
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+
+
+    <div class="row">
+
+        <div style="padding:20px;" class="pull-left">
+            <p style="text-align:center;">(Approved By)<br>HeadController Of Examination<br /></p>
+        </div>
+
+        <div style="padding:20px;" class="pull-right">
+            <p style="text-align:center;">-----------------------------<br>Signature Of student<br /></p>
+        </div>
+
+    </div>
+
+    <div>&nbsp;
+</div>
+    <div>&nbsp;</div>
+    <div class="pull-left">
+        <p style="text-decoration:underline;font-family:SolaimanLipi;">পরীক্ষার্থীদের জন্য নির্দেশাবলীঃ</p>
+        <p style="font-family: SolaimanLipi;" >
+            <br> ০১)ইস্যুকৃত প্রবেশপত্র ছাড়া কোন পরীক্ষার্থীকে পরীক্ষার হলে প্রবেশ করতে দেয়া হবে না । <br />
+            <br> ০২)পরীক্ষার সময়সূচি ও স্থান নিজ দায়িত্ত্বে জেনে নিতে হবে ।<br />
+             <br>০৩)পরীক্ষা খাতার কাভার পৃষ্ঠায় মুদ্রিত নির্দেশাবলী পরীক্ষায় যথাযথভাবে অনুসরন করবে।<br />
+           <br>০৪)পরীক্ষার হলে দায়িত্ত্বপ্রাপ্তদের নির্দেশাবলী যথাযথভাবে মেনে চলবে। <br />
+            <br> ০৫)পরীক্ষার হলে আইন শৃংখলা ভংগকারী ও শাস্তিযোগ্য অপরাধকারী পরীক্ষার্থীর বিরুদ্ধে উপযুক্ত আইনানুগ ব্যাবস্থা নেয়া হবে। <br />
+             <br>০৬)আবেদন পত্রে কোন অসত্য তথ্য লিখিত হলে আইন মোতাবেক ব্যবস্থা নেয়া হবে। <br />
+             <br>০৭)ট্রান্সক্রিপ্ট/মার্কশিট, সার্টিফিকেট উত্তোলনের সময় মূল প্রবেশপত্র প্রদর্শন করতে হবে। <br />
+
+
+        </p>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+    }
+}
+
+
+
+
+

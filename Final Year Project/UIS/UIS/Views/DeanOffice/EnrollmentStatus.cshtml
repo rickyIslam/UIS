@@ -1,0 +1,72 @@
+﻿@using UIS.Models;
+@model IEnumerable<enrollmentStatu>
+
+
+@{
+    ViewBag.Title = "EnrollmentStatus";
+    Layout = "~/Views/Shared/_DeanOfficeSideNav.cshtml";
+}
+
+
+<h1 style="color:green;text-decoration:underline; text-align:center;">Update Enrollment Status Here For Your Faculty </h1>
+
+
+
+<div>&nbsp; </div>
+<div>&nbsp;</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <div class="panel-group">
+                <div class="panel panel-success">
+                    <div class="panel-heading">Change Enrolling Status</div>
+                    <div class="panel-body">
+
+
+
+                        @using (Html.BeginForm("EnrollmentStatus", "DeanOffice", new { faculty = "CSE" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+
+                            @Html.AntiForgeryToken()
+                            <div class="form-group">
+                                <label for="sel1">Select Your Choice:</label>
+                                <select class="form-control" id="status" name="status">
+                                    <option value="ON">Start Enrollment Session</option>
+                                    <option value="OFF">End Enrollment Session</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Submit Information" class="btn btn-primary pull-right" />
+                            </div>
+
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+
+<div>&nbsp; </div>
+<div>&nbsp;</div>
+
+@{
+    foreach (enrollmentStatu enrollmentStatus in Model)
+    {
+        string status = enrollmentStatus.status;
+        <h2>Current Enrollment Status: <b>@status</b></h2>
+
+    }
+
+
+}

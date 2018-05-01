@@ -1,0 +1,22 @@
+View Data:
+______________________________________________________________ 
+public ActionResult Index()
+{
+    IList<Student> studentList = new List<Student>();
+    studentList.Add(new Student(){ StudentName = "Bill" });
+    studentList.Add(new Student(){ StudentName = "Steve" });
+    studentList.Add(new Student(){ StudentName = "Ram" });
+
+    ViewData["students"] = studentList;
+  
+    return View();
+}
+
+<ul>
+@foreach (var std in ViewData["students"] as IList<Student>)
+{
+    <li>
+        @std.StudentName
+    </li>
+}
+</ul>

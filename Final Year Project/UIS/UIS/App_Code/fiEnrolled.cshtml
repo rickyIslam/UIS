@@ -1,0 +1,76 @@
+﻿@using UIS.Models;
+@using System.Web.Mvc;
+
+@helper Render(FiEnrolledStudent es, System.Web.Mvc.HtmlHelper html)
+{
+
+    <table class="table table-bordered">
+
+
+        @{
+            string payForSemester = es.payForSemester;
+            string payableSemester = null;
+            if (payForSemester == "1")
+            {
+                payableSemester = "Level:1 / Semester:1";
+            }
+            if (payForSemester == "2")
+            {
+                payableSemester = "Level:1 / Semester:2";
+            }
+            if (payForSemester == "3")
+            {
+                payableSemester = "Level:2 / Semester:1";
+            }
+            if (payForSemester == "4")
+            {
+                payableSemester = "Level:2 / Semester:2";
+            }
+            if (payForSemester == "5")
+            {
+                payableSemester = "Level:3 / Semester:1";
+            }
+            if (payForSemester == "6")
+            {
+                payableSemester = "Level:3 / Semester:2";
+            }
+            if (payForSemester == "7")
+            {
+                payableSemester = "Level:4 / Semester:1";
+            }
+            if (payForSemester == "8")
+            {
+                payableSemester = "Level:4 / Semester:2";
+            }
+        }
+
+        <h3 style="text-align:center;font-weight:bold;">@payableSemester (Semester Fees Transaction)</h3>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+
+                <th style="text-align:center;">Date/Time</th>
+                <th>Receipt ID</th>
+                <th>Amount</th>
+
+
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td><span class="pull-left glyphicon glyphicon-calendar">@es.studentId</span></td>
+
+                <td><span class="pull-left glyphicon">@es.dateTime</span></td>
+                <td><span class="pull-left glyphicon">@es.receiptId</span></td>
+                <td><span class="pull-left glyphicon">@es.amount</span></td>
+
+            </tr>
+        </tbody>
+
+    </table>
+
+
+}

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UISModelStoreContainer" CdmEntityContainer="UIS_APIcontext">
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="UISModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MailAuths">
+      <EntityTypeMapping TypeName="UISModel.MailAuth">
+        <MappingFragment StoreEntitySet="MailAuth">
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="UISModel.Post">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="UISModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Faculty" ColumnName="Faculty" />
+          <ScalarProperty Name="Registration" ColumnName="Registration" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="Hall" ColumnName="Hall" />
+          <ScalarProperty Name="Father" ColumnName="Father" />
+          <ScalarProperty Name="Mother" ColumnName="Mother" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="parmanentAddress" ColumnName="parmanentAddress" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

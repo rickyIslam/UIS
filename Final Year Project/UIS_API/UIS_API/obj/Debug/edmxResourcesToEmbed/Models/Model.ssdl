@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AccountOfficeAuth">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Account_Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="adminStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admitStatus" Type="nvarchar(max)" />
+    <Property Name="admitSemester" Type="nvarchar(max)" />
+    <Property Name="examDate" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="chat">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="50" />
+    <Property Name="message" Type="nvarchar(max)" />
+    <Property Name="timeDate" Type="nvarchar(max)" />
+    <Property Name="selectionCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="nvarchar(max)" />
+    <Property Name="Body" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'UIS.dbo.ControllerAuth' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="ControllerAuth">
+          <Property Name="controllerName" Type="nvarchar(max)" />
+          <Property Name="controllerPassword" Type="nvarchar(max)" />
+          <Property Name="controllerDetail" Type="nvarchar(max)" />
+        </EntityType>-->
+  <EntityType Name="cse_courseLayout">
+    <Key>
+      <PropertyRef Name="courseCode" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="courseCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="courseTitle" Type="nvarchar(max)" />
+    <Property Name="creditHour" Type="float" />
+    <Property Name="forSemester" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DeanApprovedEntry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" />
+    <Property Name="faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="dateTime" Type="nvarchar(max)" />
+    <Property Name="purpose" Type="nvarchar(max)" />
+    <Property Name="receiptId" Type="nvarchar" MaxLength="50" />
+    <Property Name="amount" Type="float" />
+  </EntityType>
+  <EntityType Name="DeanOfficeAuth">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Account_Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="enrolledStudents">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" />
+    <Property Name="faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="dateTime" Type="nvarchar(max)" />
+    <Property Name="payForSemester" Type="nvarchar(max)" />
+    <Property Name="receiptId" Type="nvarchar(max)" />
+    <Property Name="amount" Type="float" />
+  </EntityType>
+  <EntityType Name="enrollmentStatus">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="FiEnrolledStudents">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" />
+    <Property Name="faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="dateTime" Type="nvarchar(max)" />
+    <Property Name="payForSemester" Type="nvarchar(max)" />
+    <Property Name="receiptId" Type="nvarchar(max)" />
+    <Property Name="amount" Type="float" />
+    <Property Name="CourseCode" Type="nvarchar(max)" />
+    <Property Name="CourseTitle" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="FiSemesterFee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateTime" Type="nvarchar(max)" />
+    <Property Name="payForSemester" Type="nvarchar(max)" />
+    <Property Name="receiptId" Type="nvarchar(max)" />
+    <Property Name="CourseCode" Type="nvarchar(max)" />
+    <Property Name="CourseTitle" Type="nvarchar(max)" />
+    <Property Name="amount" Type="float" />
+    <Property Name="status" Type="nvarchar(max)" />
+    <Property Name="faculty" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HallFee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="dateTime" Type="nvarchar(max)" />
+    <Property Name="payForSemester" Type="nvarchar(max)" />
+    <Property Name="receiptId" Type="nvarchar(max)" />
+    <Property Name="amount" Type="float" />
+    <Property Name="status" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HallProvostAuth">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Employee_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Account_Password" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="HallTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="dateTime" Type="nvarchar(max)" />
+    <Property Name="payForSemester" Type="nvarchar" MaxLength="50" />
+    <Property Name="receiptId" Type="nvarchar" MaxLength="50" />
+    <Property Name="amount" Type="float" />
+  </EntityType>
+  <EntityType Name="MailAuth">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NoticeBoard">
+    <Key>
+      <PropertyRef Name="NoticeId" />
+    </Key>
+    <Property Name="NoticeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Topic" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="nvarchar(max)" />
+    <Property Name="NoticeTitle" Type="nvarchar(max)" />
+    <Property Name="NoticeBody" Type="nvarchar(max)" />
+    <Property Name="Photo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="nvarchar(max)" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SemesterFee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="dateTime" Type="nvarchar(max)" />
+    <Property Name="payForSemester" Type="nvarchar(max)" />
+    <Property Name="receiptId" Type="nvarchar(max)" />
+    <Property Name="amount" Type="float" />
+    <Property Name="hallClearance" Type="nvarchar(max)" />
+    <Property Name="status" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="studentId" />
+    </Key>
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar(max)" />
+    <Property Name="nickName" Type="nvarchar(max)" />
+    <Property Name="Dob" Type="nvarchar" MaxLength="50" />
+    <Property Name="Faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="Registration" Type="nvarchar" MaxLength="50" />
+    <Property Name="Session" Type="nvarchar" MaxLength="50" />
+    <Property Name="Hall" Type="nvarchar(max)" />
+    <Property Name="Father" Type="nvarchar(max)" />
+    <Property Name="Mother" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Town" Type="nvarchar(max)" />
+    <Property Name="Po" Type="nvarchar(max)" />
+    <Property Name="Ps" Type="nvarchar(max)" />
+    <Property Name="District" Type="nvarchar(max)" />
+    <Property Name="Photo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TempBank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="dateTime" Type="nvarchar(max)" />
+    <Property Name="payForSemester" Type="nvarchar" MaxLength="50" />
+    <Property Name="receiptId" Type="nvarchar" MaxLength="50" />
+    <Property Name="amount" Type="float" />
+  </EntityType>
+  <Association Name="FK_Comments_Posts">
+    <End Role="Posts" Type="Self.Posts" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeanApprovedEntry_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="DeanApprovedEntry" Type="Self.DeanApprovedEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="DeanApprovedEntry">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enrolledStudents_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="enrolledStudents" Type="Self.enrolledStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="enrolledStudents">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FiEnrolledStudents_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="FiEnrolledStudents" Type="Self.FiEnrolledStudents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="FiEnrolledStudents">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FiSemesterFee_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="FiSemesterFee" Type="Self.FiSemesterFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="FiSemesterFee">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HallFee_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="HallFee" Type="Self.HallFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="HallFee">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HallTransaction_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="HallTransaction" Type="Self.HallTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="HallTransaction">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posts_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="Posts">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SemesterFee_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="SemesterFee" Type="Self.SemesterFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="SemesterFee">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UISModelStoreContainer">
+    <EntitySet Name="AccountOfficeAuth" EntityType="Self.AccountOfficeAuth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="adminStatus" EntityType="Self.adminStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="chat" EntityType="Self.chat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cse_courseLayout" EntityType="Self.cse_courseLayout" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeanApprovedEntry" EntityType="Self.DeanApprovedEntry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeanOfficeAuth" EntityType="Self.DeanOfficeAuth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enrolledStudents" EntityType="Self.enrolledStudents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="enrollmentStatus" EntityType="Self.enrollmentStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FiEnrolledStudents" EntityType="Self.FiEnrolledStudents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FiSemesterFee" EntityType="Self.FiSemesterFee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HallFee" EntityType="Self.HallFee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HallProvostAuth" EntityType="Self.HallProvostAuth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HallTransaction" EntityType="Self.HallTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MailAuth" EntityType="Self.MailAuth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NoticeBoard" EntityType="Self.NoticeBoard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SemesterFee" EntityType="Self.SemesterFee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TempBank" EntityType="Self.TempBank" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Comments_Posts" Association="Self.FK_Comments_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeanApprovedEntry_Student" Association="Self.FK_DeanApprovedEntry_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="DeanApprovedEntry" EntitySet="DeanApprovedEntry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enrolledStudents_Student" Association="Self.FK_enrolledStudents_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="enrolledStudents" EntitySet="enrolledStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FiEnrolledStudents_Student" Association="Self.FK_FiEnrolledStudents_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="FiEnrolledStudents" EntitySet="FiEnrolledStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FiSemesterFee_Student" Association="Self.FK_FiSemesterFee_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="FiSemesterFee" EntitySet="FiSemesterFee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HallFee_Student" Association="Self.FK_HallFee_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="HallFee" EntitySet="HallFee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HallTransaction_Student" Association="Self.FK_HallTransaction_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="HallTransaction" EntitySet="HallTransaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posts_Student" Association="Self.FK_Posts_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Posts" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SemesterFee_Student" Association="Self.FK_SemesterFee_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="SemesterFee" EntitySet="SemesterFee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

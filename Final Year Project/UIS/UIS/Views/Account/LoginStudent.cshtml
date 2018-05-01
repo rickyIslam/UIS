@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "LoginStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    function validateForm() {
+        var userName = document.forms["Login"]["userName"].value;
+        var password = document.forms["Login"]["password"].value;
+
+        if (userName == "" || userName == null) {
+            alert("Give Valid User Name");
+            return false
+        }
+
+        if (password == "" || password == null) {
+            alert("Give Valid Password");
+            return false;
+        }
+
+    }
+</script>
+
+
+    @using (Html.BeginForm("LoginStudent", "Account", FormMethod.Post, new { name = "Login", id = "Login", onsubmit = "return validateForm()" }))
+    {
+        <div class="container">
+            <img class="img-responsive center-block" src="~/Picture/pstu_logo.jpg" style="display:block;margin:0 auto;" width="150" height="150">
+            <h1 style="text-align:center;font-family:'Bookman Old Style';color:red;">Patuakhali Science and Technology University</h1>
+            <h2 style="text-align:center;font-family:'Bookman Old Style';color:green;">University Information System</h2>
+
+            <div class="well well-sm">
+
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-md-offset-4">
+                        <h3 class="text-center login-title" style="font-family:'Bookman Old Style';">Log In Your Account</h3>
+                        <div>&nbsp;</div>
+                        <div class="account-wall">
+
+                           
+
+
+                            <form class="form-signin">
+
+                                <div class="form-group">
+                                    <label for="sel1">Log In As:</label>
+                                    <select class="form-control" id="selector" name="selector">
+                                        <option value="student">Student</option>
+                                        <option value="account">Account Officer</option>
+                                        <option value="hall">Hall Provost</option>
+                                        <option value="dean">Dean Office</option>
+                                       
+                                    </select>
+                                </div>
+
+                                <label for="email">Student/Employee ID:</label>
+                                <input type="text" name="userName" class="form-control" placeholder="Student ID" required autofocus>
+                                <label for="email">Password:</label>
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                <div> &nbsp; </div>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                        Sign in
+                                    </button>
+                               
+                               
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+}
+

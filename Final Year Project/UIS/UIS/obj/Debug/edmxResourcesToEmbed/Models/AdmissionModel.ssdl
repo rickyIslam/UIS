@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AdmissionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="a_alloted">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" />
+    <Property Name="allotedFaculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="allotedHall" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="a_choice">
+    <Key>
+      <PropertyRef Name="userRoll" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userRoll" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="merit_position" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="first_choice" Type="varchar" MaxLength="50" />
+    <Property Name="second_choice" Type="varchar" MaxLength="50" />
+    <Property Name="third_choice" Type="varchar" MaxLength="50" />
+    <Property Name="forth_choice" Type="varchar" MaxLength="50" />
+    <Property Name="fifth_choice" Type="nvarchar" MaxLength="50" />
+    <Property Name="sixth_choice" Type="nvarchar" MaxLength="50" />
+    <Property Name="seventh_choice" Type="nvarchar" MaxLength="50" />
+    <Property Name="first_hall" Type="nvarchar" MaxLength="50" />
+    <Property Name="second_hall" Type="nvarchar" MaxLength="50" />
+    <Property Name="third_hall" Type="nvarchar" MaxLength="50" />
+    <Property Name="forth_hall" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="allotCount">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" />
+    <Property Name="allotedFaculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="allotedHall" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="b_alloted">
+    <Key>
+      <PropertyRef Name="studentId" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="allotedFaculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="allotedHall" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="b_choice">
+    <Key>
+      <PropertyRef Name="userRoll" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userRoll" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="merit_position" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="first_hall" Type="nvarchar" MaxLength="50" />
+    <Property Name="second_hall" Type="nvarchar" MaxLength="50" />
+    <Property Name="third_hall" Type="nvarchar" MaxLength="50" />
+    <Property Name="forth_hall" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="c_alloted">
+    <Key>
+      <PropertyRef Name="studentId" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="allotedFaculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="allotedHall" Type="nvarchar" MaxLength="50" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="c_choice">
+    <Key>
+      <PropertyRef Name="userRoll" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userRoll" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="merit_position" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" />
+    <Property Name="first_hall" Type="nvarchar" MaxLength="50" />
+    <Property Name="second_hall" Type="nvarchar" MaxLength="50" />
+    <Property Name="third_hall" Type="nvarchar" MaxLength="50" />
+    <Property Name="forth_hall" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="check_eligible">
+    <Key>
+      <PropertyRef Name="auto_id" />
+    </Key>
+    <Property Name="auto_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="roll_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="unit" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="studentDb">
+    <Key>
+      <PropertyRef Name="studentRoll" />
+    </Key>
+    <Property Name="studentRoll" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="unit" Type="nvarchar" MaxLength="50" />
+    <Property Name="name" Type="nvarchar(max)" />
+    <Property Name="sex" Type="nvarchar" MaxLength="50" />
+    <Property Name="father" Type="nvarchar(max)" />
+    <Property Name="hsc_roll" Type="nvarchar" MaxLength="50" />
+    <Property Name="ssc_roll" Type="nvarchar" MaxLength="50" />
+    <Property Name="hsc_reg" Type="nvarchar" MaxLength="50" />
+    <Property Name="ssc_reg" Type="nvarchar" MaxLength="50" />
+    <Property Name="photoLink" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_a_alloted_a_choice">
+    <End Role="a_choice" Type="Self.a_choice" Multiplicity="0..1" />
+    <End Role="a_alloted" Type="Self.a_alloted" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="a_choice">
+        <PropertyRef Name="userRoll" />
+      </Principal>
+      <Dependent Role="a_alloted">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_a_alloted_studentDb1">
+    <End Role="studentDb" Type="Self.studentDb" Multiplicity="0..1" />
+    <End Role="a_alloted" Type="Self.a_alloted" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="studentDb">
+        <PropertyRef Name="studentRoll" />
+      </Principal>
+      <Dependent Role="a_alloted">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_b_alloted_b_choice">
+    <End Role="b_choice" Type="Self.b_choice" Multiplicity="1" />
+    <End Role="b_alloted" Type="Self.b_alloted" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="b_choice">
+        <PropertyRef Name="userRoll" />
+      </Principal>
+      <Dependent Role="b_alloted">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_b_alloted_studentDb1">
+    <End Role="studentDb" Type="Self.studentDb" Multiplicity="1" />
+    <End Role="b_alloted" Type="Self.b_alloted" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="studentDb">
+        <PropertyRef Name="studentRoll" />
+      </Principal>
+      <Dependent Role="b_alloted">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_c_alloted_c_choice">
+    <End Role="c_choice" Type="Self.c_choice" Multiplicity="1" />
+    <End Role="c_alloted" Type="Self.c_alloted" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="c_choice">
+        <PropertyRef Name="userRoll" />
+      </Principal>
+      <Dependent Role="c_alloted">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_c_alloted_studentDb">
+    <End Role="studentDb" Type="Self.studentDb" Multiplicity="1" />
+    <End Role="c_alloted" Type="Self.c_alloted" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="studentDb">
+        <PropertyRef Name="studentRoll" />
+      </Principal>
+      <Dependent Role="c_alloted">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AdmissionModelStoreContainer">
+    <EntitySet Name="a_alloted" EntityType="Self.a_alloted" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="a_choice" EntityType="Self.a_choice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="allotCount" EntityType="Self.allotCount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="b_alloted" EntityType="Self.b_alloted" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="b_choice" EntityType="Self.b_choice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="c_alloted" EntityType="Self.c_alloted" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="c_choice" EntityType="Self.c_choice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="check_eligible" EntityType="Self.check_eligible" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="studentDb" EntityType="Self.studentDb" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_a_alloted_a_choice" Association="Self.FK_a_alloted_a_choice">
+      <End Role="a_choice" EntitySet="a_choice" />
+      <End Role="a_alloted" EntitySet="a_alloted" />
+    </AssociationSet>
+    <AssociationSet Name="FK_a_alloted_studentDb1" Association="Self.FK_a_alloted_studentDb1">
+      <End Role="studentDb" EntitySet="studentDb" />
+      <End Role="a_alloted" EntitySet="a_alloted" />
+    </AssociationSet>
+    <AssociationSet Name="FK_b_alloted_b_choice" Association="Self.FK_b_alloted_b_choice">
+      <End Role="b_choice" EntitySet="b_choice" />
+      <End Role="b_alloted" EntitySet="b_alloted" />
+    </AssociationSet>
+    <AssociationSet Name="FK_b_alloted_studentDb1" Association="Self.FK_b_alloted_studentDb1">
+      <End Role="studentDb" EntitySet="studentDb" />
+      <End Role="b_alloted" EntitySet="b_alloted" />
+    </AssociationSet>
+    <AssociationSet Name="FK_c_alloted_c_choice" Association="Self.FK_c_alloted_c_choice">
+      <End Role="c_choice" EntitySet="c_choice" />
+      <End Role="c_alloted" EntitySet="c_alloted" />
+    </AssociationSet>
+    <AssociationSet Name="FK_c_alloted_studentDb" Association="Self.FK_c_alloted_studentDb">
+      <End Role="studentDb" EntitySet="studentDb" />
+      <End Role="c_alloted" EntitySet="c_alloted" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

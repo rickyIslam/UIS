@@ -1,0 +1,62 @@
+﻿@using UIS.Models
+@model IEnumerable<cse_courseLayout>
+@{
+    ViewBag.Title = "allCourses";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+}
+
+<h2>You Are Enrolling For The Courses Below: </h2>
+<div>&nbsp;</div>
+
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Course Code</th>
+            <th>Course Title</th>
+            <th>Credit Hour</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+
+
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+
+
+                    <td>@item.courseCode</td>
+                    <td>@item.courseTitle</td>
+                    <td>@item.creditHour</td>
+
+                </tr>
+
+            }
+        }
+
+
+
+    </tbody>
+
+</table>
+
+@{
+
+    var strCreditHour = ViewBag.cseCreditHour;
+    double dobCreditHour = Convert.ToDouble(strCreditHour);
+    double totalCreditFee = dobCreditHour * 75;
+
+    @*<h1>Total Credit Hour: <b style="color:green;">@strCreditHour</b></h1>
+    <h1>Total Credit Hour: <b style="color:green;">@totalCreditFee</b> </h1>*@
+
+
+}
+
+
+<div>&nbsp; </div>
+<div>&nbsp;</div>
+

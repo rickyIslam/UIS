@@ -1,0 +1,15 @@
+﻿@using UIS.Models;
+@using System.Web.Mvc;
+
+
+@helper Render(Post post, System.Web.Mvc.HtmlHelper html)
+
+{
+    var id = post.ID;
+
+    
+           <a href="@Href("~/Blog/Details/" + post.ID)"><p style="text-align: justify; color: #303030;"><b>@post.Title </b><span style="color: #5C5C5C; ">লিখেছেনঃ </span><b>@post.UserName</b> </p></a>
+
+   
+
+}

@@ -1,0 +1,314 @@
+﻿@{
+    ViewBag.Title = "a_choice";
+    Layout = "~/Views/Shared/_AdmissionStudentSideNav .cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        $("#infoSubmit").hide();
+    })
+</script>
+<h2 style="color:black; font-family:'Book Antiqua';text-align:center;text-decoration:underline;">A-UNIT Subject & Hall Choice</h2>
+<div>&nbsp;</div>
+
+
+@using (Html.BeginForm("a_choice", "Admission_student", FormMethod.Post, new { name = "Login", id = "Login" }))
+{
+   
+    
+    
+    <div class="well">
+        <div class="row">
+            <h3 class="text-center"><b>Please Select your Subjects According to Your Choice</b></h3>
+            <div class="col-md-4">
+                <label for="sel1">1st Choice:</label>
+                <select class="form-control" id="first_choice" name="first_choice">
+                    <option value="ag">Agriculture</option>
+                    <option value="fish">Fisheries</option>
+                    <option value="nfs">Nutrition & Food Science</option>
+                    <option value="dm">Disester Managment</option>
+                    <option value="dvm">Doctor Of Veterenary Medicine</option>
+                    <option value="ah">Animal Husbendry</option>
+                    <option value="lm">Land Managment & Administration </option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="sel1">2nd Choice:</label>
+                <select class="form-control" id="second_choice" name="second_choice">
+                    <option value="ag">Agriculture</option>
+                    <option value="fish">Fisheries</option>
+                    <option value="nfs">Nutrition & Food Science</option>
+                    <option value="dm">Disester Managment</option>
+                    <option value="dvm">Doctor Of Veterenary Medicine</option>
+                    <option value="ah">Animal Husbendry</option>
+                    <option value="lm">Land Managment & Administration </option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="sel1">3rd Choice:</label>
+                <select class="form-control" id="third_choice" name="third_choice">
+                    <option value="ag">Agriculture</option>
+                    <option value="fish">Fisheries</option>
+                    <option value="nfs">Nutrition & Food Science</option>
+                    <option value="dm">Disester Managment</option>
+                    <option value="dvm">Doctor Of Veterenary Medicine</option>
+                    <option value="ah">Animal Husbendry</option>
+                    <option value="lm">Land Managment & Administration </option>
+                </select>
+            </div>
+        </div>
+
+        <div>&nbsp;</div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label for="sel1">4th Choice:</label>
+                <select class="form-control" id="forth_choice" name="forth_choice">
+                    <option value="ag">Agriculture</option>
+                    <option value="fish">Fisheries</option>
+                    <option value="nfs">Nutrition & Food Science</option>
+                    <option value="dm">Disester Managment</option>
+                    <option value="dvm">Doctor Of Veterenary Medicine</option>
+                    <option value="ah">Animal Husbendry</option>
+                    <option value="lm">Land Managment & Administration </option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="sel1">5th Choice:</label>
+                <select class="form-control" id="fifth_choice" name="fifth_choice">
+                    <option value="ag">Agriculture</option>
+                    <option value="fish">Fisheries</option>
+                    <option value="nfs">Nutrition & Food Science</option>
+                    <option value="dm">Disester Managment</option>
+                    <option value="dvm">Doctor Of Veterenary Medicine</option>
+                    <option value="ah">Animal Husbendry</option>
+                    <option value="lm">Land Managment & Administration </option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="sel1">6th Choice:</label>
+                <select class="form-control" id="sixth_choice" name="sixth_choice">
+                    <option value="ag">Agriculture</option>
+                    <option value="fish">Fisheries</option>
+                    <option value="nfs">Nutrition & Food Science</option>
+                    <option value="dm">Disester Managment</option>
+                    <option value="dvm">Doctor Of Veterenary Medicine</option>
+                    <option value="ah">Animal Husbendry</option>
+                    <option value="lm">Land Managment & Administration </option>
+                </select>
+            </div>
+        </div>
+
+        <div>&nbsp;</div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <label for="sel1">7th Choice:</label>
+                <select class="form-control" id="seventh_choice" name="seventh_choice">
+                    <option value="ag">Agriculture</option>
+                    <option value="fish">Fisheries</option>
+                    <option value="nfs">Nutrition & Food Science</option>
+                    <option value="dm">Disester Managment</option>
+                    <option value="dvm">Doctor Of Veterenary Medicine</option>
+                    <option value="ah">Animal Husbendry</option>
+                    <option value="lm">Land Managment & Administration </option>
+                </select>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+
+    @*------------------------------- hall selection started------------------------------ *@
+
+    //string sex = "m";
+    if (Session["sex"].ToString() == "m")
+    {
+        <div class="well">
+
+            <div class="row">
+                <h3 class="text-center"><b>Please Select your Hall According to Your Choice (Male)</b></h3>
+                <div class="col-md-3">
+                    <label for="sel1">1st Choice:</label>
+                    <select class="form-control" id="first_hall" name="first_hall">
+                        <option value="SB1">Sher E Banlga Hall - 01</option>
+                        <option value="SB2">Sher E Bangla Hall - 02</option>
+                        <option value="BBH">Bangabandhu Shekh Mujib Hall</option>
+                        <option value="KAH">M Keramot Ali Hall</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="sel1">2nd Choice:</label>
+                    <select class="form-control" id="second_hall" name="second_hall">
+                        <option value="SB1">Sher E Banlga Hall - 01</option>
+                        <option value="SB2">Sher E Bangla Hall - 02</option>
+                        <option value="BBH">Bangabandhu Shekh Mujib Hall</option>
+                        <option value="KAH">M Keramot Ali Hall</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="sel1">3rd Choice:</label>
+                    <select class="form-control" id="third_hall" name="third_hall">
+                        <option value="SB1">Sher E Banlga Hall - 01</option>
+                        <option value="SB2">Sher E Bangla Hall - 02</option>
+                        <option value="BBH">Bangabandhu Shekh Mujib Hall</option>
+                        <option value="KAH">M Keramot Ali Hall</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="sel1">4th Choice:</label>
+                    <select class="form-control" id="forth_hall" name="forth_hall">
+                        <option value="SB1">Sher E Banlga Hall - 01</option>
+                        <option value="SB2">Sher E Bangla Hall - 02</option>
+                        <option value="BBH">Bangabandhu Shekh Mujib Hall</option>
+                        <option value="KAH">M Keramot Ali Hall</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+    }
+
+    else
+    {
+        <div class="well">
+
+            <div class="row">
+                <h3 class="text-center"><b>Please Select your Hall According to Your Choice (Female)</b></h3>
+                <div class="col-md-3">
+                    <label for="sel1">1st Choice:</label>
+                    <select class="form-control" id="first_hall" name="first_hall">
+                        <option value="FNH">Shekh Fajilatunnesa Mujib Hall</option>
+                        <option value="SKH">Sufia Kamal Hall</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="sel1">2nd Choice:</label>
+                    <select class="form-control" id="second_hall" name="second_hall">
+                        <option value="FNH">Shekh Fajilatunnesa Mujib Hall</option>
+                        <option value="SKH">Sufia Kamal Hall</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="sel1">3rd Choice:</label>
+                    <select disabled class="form-control" id="third_hall" name="third_hall">
+                        <option selected value="nul">Not Applicable</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="sel1">4th Choice:</label>
+                    <select disabled class="form-control" id="forth_hall" name="forth_hall">
+                        <option selected value="null">Not Applicable</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    }
+
+    <div class="row">
+
+        <div class="col-md-6">
+           
+            <button type="button" id="button11" name="button1" class="btn btn-primary">Primary</button>
+
+
+            @* Script Starts here ............ *@
+            <script src="~/Scripts/jquery-1.10.2.js"></script>
+            <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <script>
+                
+                $(document).ready(function () {
+                    $('#button11').click(function () {
+                        var subSelector = null;
+                        var hallSelector = null;
+
+                        var first_choice = $('#first_choice').val();
+                        var second_choice = $('#second_choice').val();
+                        var third_choice = $('#third_choice').val();
+                        var forth_choice = $('#forth_choice').val();
+                        var fifth_choice = $('#fifth_choice').val();
+                        var sixth_choice = $('#sixth_choice').val();
+                        var seventh_choice = $('#seventh_choice').val();
+
+                        var first_hall = $('#first_hall').val();
+                        var second_hall = $('#second_hall').val();
+                        var third_hall = $('#third_hall').val();
+                        var forth_hall = $('#forth_hall').val();
+
+                        var hallArray = new Array();
+                        hallArray[0] = first_hall;
+                        hallArray[1] = second_hall;
+                        hallArray[2] = third_hall;
+                        hallArray[3] = forth_hall;
+
+
+                        var arr = new Array();
+                        arr[0] = first_choice;
+                        arr[1] = second_choice;
+                        arr[2] = third_choice;
+                        arr[3] = forth_choice;
+                        arr[4] = fifth_choice;
+                        arr[5] = sixth_choice;
+                        arr[6] = seventh_choice;
+
+                        for (i = 0; i < 7; i++) {
+                            for (j = i + 1; j < 7; j++) {
+                                if (arr[i] == arr[j]) {
+                                    subSelector = "matched";
+                                    break;
+                                }
+                            }
+                        }
+
+
+                        for (k = 0; k < 4; k++) {
+                            for (l = k + 1; l < 4; l++) {
+                                if (hallArray[k] == hallArray[l]) {
+                                    hallSelector = "matched";
+                                    break;
+                                }
+                            }
+                        }
+
+
+                        if (subSelector == "matched" || hallSelector == "matched")
+                       // if (subSelector == "matched")
+                        {
+                            swal("Sorry!", "Matched!", "warning");
+                           
+                        }
+                        else
+                        {
+                            swal("Good job!", "Un-Matched!", "success");
+                            $(function () {
+                                $("#infoSubmit").show();
+                            })
+                            
+                        }
+
+                    });
+                });
+            </script>
+
+            @* Script Starts here ............ *@
+        
+
+        </div>
+        <div id="infoSubmit" class="col-md-6">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">
+                Submit Info>>>
+            </button>
+        </div>
+    </div>
+
+
+}
+

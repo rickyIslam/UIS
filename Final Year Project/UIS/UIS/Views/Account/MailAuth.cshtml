@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "MailAuth";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+
+    function validateForm() {
+        var x = document.forms["MailAuth"]["email"].value;
+        if (x == null || x == "") {
+            alert("Name must be filled out");
+            return false;
+        }
+    }
+
+</script>
+
+<h2>A security Code code will be sent in you PIS Registered Email Address</h2>
+
+<div class="row">
+    <div class="col-lg-5">
+
+
+
+        @using (Html.BeginForm("MailAuth", "Account", FormMethod.Post, new { name = "MailAuth", id = "MailAuth", onsubmit = "return validateForm()" }))
+        {
+            <div class="form-group">
+                <div>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                </div>
+                <button type="submit" class="btn btn-success">I Agree !!! Send Me Security Code</button>
+            </div>
+        }
+
+
+
+    </div>
+</div>
+

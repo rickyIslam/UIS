@@ -1,0 +1,314 @@
+﻿@{
+    ViewBag.Title = "RegisterStudent";
+    Layout = "~/Views/Shared/_AdminSideNav.cshtml";
+}
+
+@{
+    string photLink = TempData["photo"].ToString();
+}
+<h1 style="text-align:center;font-family:'Bookman Old Style';">Register New A Student Here</h1>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<div class="row">
+
+    <div class="col-md-4"></div>
+
+    <div class="col-md-4">
+       
+
+        <img src="~/AdmissionPhoto/@photLink" alt="" class="img-thumbnail" id="Photo" width="250" height="250">
+    </div>
+
+    <div class="col-md-4"></div>
+
+</div>
+
+
+
+<h3 style="text-decoration:underline;color:green;">Academic Information:</h3>
+
+@using (Html.BeginForm("RegisterStudent", "AdminPanel", FormMethod.Post, new { enctype = "multipart/form-data", name = "enrolledSemester", id = "enrolledSemester", onsubmit = "return validateForm()" }))
+{
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="usr">Student's ID:</label>
+            <input type="text" class="form-control" style="width:100%" id="studentId" name="studentId">
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="usr">Registraion Number:</label>
+            <input type="text" class="form-control" style="width:100%" id="Registration" name="Registration">
+
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="usr">Faculty:</label>
+            <input type="text" class="form-control" style="width:100%" id="Faculty" name="Faculty">
+            <script>
+                var faculty = "@TempData["faculty"]";
+                document.getElementById("Faculty").value = faculty;
+            </script>
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="usr">Session:</label>
+            <input type="text" class="form-control" style="width:100%" id="Session" name="Session">
+
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="usr">Photo:</label>
+            <input type="text" class="form-control" style="width:100%" id="photoLink" name="photoLink">
+            <script>
+                var pho = "@TempData["photo"]";
+                document.getElementById("photoLink").value = pho;
+            </script>
+
+        </div>
+    </div>
+
+
+</div>
+<div>&nbsp;</div>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="usr">Admission Roll:</label>
+            <input type="text" class="form-control" style="width:100%" id="admissionRoll" name="admissionRoll">
+            <script>
+                var admissionRoll = "@TempData["admissionRoll"]";
+                document.getElementById("admissionRoll").value = admissionRoll;
+            </script>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="usr">HSC Roll:</label>
+            <input type="text" class="form-control" style="width:100%" id="hscRoll" name="hscRoll">
+            <script>
+                var hscRoll = "@TempData["hscRoll"]";
+                document.getElementById("hscRoll").value = hscRoll;
+            </script>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="usr">HSC Reg:</label>
+            <input type="text" class="form-control" style="width:100%" id="hscReg" name="hscReg">
+            <script>
+                var hscReg = "@TempData["hscReg"]";
+                document.getElementById("hscReg").value = hscReg;
+            </script>
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="usr">SSC Roll:</label>
+            <input type="text" class="form-control" style="width:100%" id="sscRoll" name="sscRoll">
+            <script>
+                var sscRoll = "@TempData["sscRoll"]";
+                document.getElementById("sscRoll").value = sscRoll;
+            </script>
+        </div>
+    </div>
+
+
+</div>
+<div>&nbsp;</div>
+
+<h3 style="text-decoration:underline;color:green;">Personal Information:</h3>
+
+<div class="row">
+   
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="usr">Student's Full Name:</label>
+            <input type="text" class="form-control" style="width:100%" id="fullName" name="fullName">
+            <script>
+                var name ="@TempData["name"]";
+                document.getElementById("fullName").value = name;
+            </script>
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="usr">Nick Name (For Forum Purpose):</label>
+            <input type="text" class="form-control" style="width:100%" id="nickName" name="nickName">
+
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="usr">Sex:</label>
+            <input type="text" class="form-control" style="width:100%" id="sex" name="sex">
+            <script>
+                var sex = "@TempData["sex"]";
+                document.getElementById("sex").value = sex;
+            </script>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="usr">Father's name:</label>
+            <input type="text" class="form-control" style="width:100%" id="Father" name="Father">
+            <script>
+                var father = "@TempData["father"]";
+                document.getElementById("Father").value = father;
+            </script>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="usr">Mother's Name:</label>
+            <input type="text" class="form-control" style="width:100%" id="Mother" name="Mother">
+
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="usr">Date Of Birth:</label>
+            <input type="text" class="form-control" style="width:100%" id="Dob" name="Dob">
+
+        </div>
+    </div>
+
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="usr">Hall Name:</label>
+            <input type="text" class="form-control" style="width:100%" id="Hall" name="Hall">
+            <script>
+                var hall = "@TempData["hall"]";
+                document.getElementById("Hall").value = hall;
+            </script>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="usr">Attach Number:</label>
+            <input type="text" class="form-control" style="width:100%" id="Attach" name="Attach">
+
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="usr">Phone Number:</label>
+            <input type="text" class="form-control" style="width:100%" id="Phone" name="Phone">
+
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="usr">Email Address:</label>
+            <input type="text" class="form-control" style="width:100%" id="Email" name="Email">
+
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="usr">Town:</label>
+            <input type="text" class="form-control" style="width:100%" id="Town" name="Town">
+
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="usr">Police Station:</label>
+            <input type="text" class="form-control" style="width:100%" id="Ps" name="Ps">
+
+        </div>
+    </div>
+
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="usr">Post Office:</label>
+            <input type="text" class="form-control" style="width:100%" id="Po" name="Po">
+
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="usr">District:</label>
+            <input type="text" class="form-control" style="width:100%" id="District" name="District">
+
+        </div>
+    </div>
+
+
+</div>
+
+<div>&nbsp;</div>
+<div class="row">
+
+    <div class="col-md-4">
+
+    </div>
+
+    <div class="col-md-4">
+
+    </div>
+
+
+    <div class="col-md-4">
+        <input type="submit" value="Store Into UIS Database >>>" class="btn btn-primary pull-right" />
+    </div>
+
+</div>
+
+}
+
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>

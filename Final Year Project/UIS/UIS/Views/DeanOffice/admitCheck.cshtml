@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "admitCheck";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+}
+
+<h1 style="color:green;text-align:center;">@ViewBag.admitCheck</h1>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<h2 style="color:black;text-align:center;">@ViewBag.abc</h2>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+@{
+    
+    if(ViewBag.admitStatus=="ON")
+    {
+       <h3 style="text-align:center;"><a href="~/DeanOffice/pdfAdmit"><span class="glyphicon glyphicon-certificate"></span>&nbsp;<b>Your Admit Card Is Ready ... Download Here </b></a></h3>
+ 
+    }
+    else
+    {
+        <h3 style="text-align:center;color:red;"></h3>
+    }
+}
+
+
+

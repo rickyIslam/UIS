@@ -1,0 +1,42 @@
+﻿@using UIS.Models
+@{
+    ViewBag.Title = "FiCourses";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+}
+
+<h1 style="text-align:center; font-family:Century;text-decoration:underline;">Please Choose Your  Course From The List Below</h1>
+<div>&nbsp;</div>
+
+<table class="table table-bordered">
+
+    <thead style="color:red;">
+        <tr>
+            <th>Course Code</th>
+            <th>Course Title</th>
+            <th>Credit Hour</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+
+
+        @{
+            foreach (cse_courseLayout courses in ViewBag.listCourses)
+            {
+                <tr>
+                    <td>@courses.courseCode</td>
+                    <td>@courses.courseTitle</td>
+                    <td>@courses.creditHour</td>
+                    <td>@Html.ActionLink("Add This Course In List", "AddCourses", "FiSemesterFee", new { courseCode = courses.courseCode }, null)</td>
+                </tr>
+
+            }
+        }
+
+
+
+    </tbody>
+
+</table>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PostID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Post" Relationship="Self.FK_Comments_Posts" FromRole="Comments" ToRole="Posts" />
+  </EntityType>
+  <EntityType Name="MailAuth">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Posts" FromRole="Posts" ToRole="Comments" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Posts_Student" FromRole="Posts" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="studentId" />
+    </Key>
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="nickName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dob" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Registration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Session" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hall" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Father" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mother" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="parmanentAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK_Posts_Student" FromRole="Student" ToRole="Posts" />
+  </EntityType>
+  <Association Name="FK_Comments_Posts">
+    <End Role="Posts" Type="Self.Post" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posts_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="Posts">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UIS_APIcontext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="MailAuths" EntityType="Self.MailAuth" />
+    <EntitySet Name="Posts" EntityType="Self.Post" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <AssociationSet Name="FK_Comments_Posts" Association="Self.FK_Comments_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posts_Student" Association="Self.FK_Posts_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Posts" EntitySet="Posts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,139 @@
+﻿@using UIS.Models;
+
+@{
+    ViewBag.Title = "chat";
+    Layout = "~/Views/Shared/_chatHead.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="container">
+            <h1 style="text-align:center;color:red; font-family:Century; font-size:30px; text-decoration:underline;">Admin Window</h1>
+            <p>@ViewBag.msg</p>
+
+                <div style="width: 50%; margin: 0 auto;"><img src="~/proPic/@ViewBag.photo" alt="" class="img-thumbnail" width="150" height="150"></div>
+                <h4 class="list-group-item">Full Name: <b style="color:green;">@ViewBag.fullName</b></h4>
+                <h4 class="list-group-item">Nick Name: <b style="color:green;">@ViewBag.nickName</b></h4>
+                <h4 class="list-group-item">Student's Id: <b style="color:green;">@ViewBag.studentId</b></h4>
+                <h4 class="list-group-item">Registration No: <b style="color:green;">@ViewBag.reg</b></h4>
+                <h4 class="list-group-item">Faculty: <b style="color:green;">@ViewBag.faculty</b></h4>
+                <h4 class="list-group-item">Admission Session: <b style="color:green;">@ViewBag.session</b></h4>
+                <h4 class="list-group-item">Phone Number: <b style="color:green;">@ViewBag.phone</b></h4>
+
+        </div>
+    </div>
+
+
+
+    <div class="col-md-8">
+
+        <div id="UpdatePanel" class="container">
+
+        </div>
+
+
+        @section Scripts{
+            <script>
+                $(document).ready(function () {
+                    window.setInterval(function () {
+
+                        $.ajax({
+                            url: "@Url.Action("getMessage", "AdminPanel")",
+                            data: "",
+                            type: "GET",
+                            dataType: "json",
+                            success: function (data) {
+                                loadData(data);
+                            },
+                            error: function () {
+                                alert("Failed! Please try again.");
+                            }
+                        });
+
+
+                        function loadData(data) {
+
+                            var tab = $('<div class="row"></div>');
+
+                            $.each(data, function (i, val) {
+
+                                tab.append('<div>&nbsp;</div>');
+
+
+
+                                if (val.userName == "admin") {
+
+                                    var trow1 = $('<div style=" border: 2px double #EEEEEE; padding: 10px 40px; background: #E6E6E6;  border-bottom-right-radius: 25px; " ></div>');
+                                    trow1.append('<b><p align="left" style="color:black;">' + val.userName + '&nbsp;</b>' + '<span><i>Said On &nbsp;</span></i>' + '<span><b>' + val.timeDate + '</span></b>' + '</p>');
+                                    trow1.append('<p align="right" style="color:black; "text-align:justify""><b>' + val.message + '</p></b>');
+                                    tab.append(trow1);
+
+
+                                }
+                                else {
+
+                                    var trow2 = $('<div style=" border: 2px double #EEEEEE; padding: 10px 40px; background: #0084ff;  border-bottom-left-radius: 25px; " ></div>');
+                                    trow2.append('<b><p align="left" style="color:white;">' + val.userName + '&nbsp;</b>' + '<span><i>Said On &nbsp;</span></i>' + '<span><b>' + val.timeDate + '</span></b>' + '</p>');
+                                    trow2.append('<p align="left" style="color:white; "text-align:justify""><b>' + val.message + '</p></b>');
+                                    tab.append(trow2);
+
+
+                                }
+
+                                $("#UpdatePanel").html(tab);
+
+
+                            });
+
+
+                        };
+
+
+
+                    }, 3000);
+                });
+            </script>
+        }
+
+
+
+        @* -------------------------------------- Send Message ------------------------------------------------ *@
+
+
+
+        <div>
+            &nbsp;
+        </div>
+
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script>
+
+            $(document).ready(function (event) {
+
+                $("#btnSubmit22").click(function () {
+
+                    var data = $("#myForm22").serialize();
+                    debugger
+                    $.ajax({
+
+                        type: "POST",
+                        url: "/AdminPanel/chat",
+                        data: data,
+                        success: function (response) {
+                            alert("You are done");
+                        }
+
+                    })
+
+
+                })
+
+            })
+
+        </script>
+
+
+    </div>
+
+</div>

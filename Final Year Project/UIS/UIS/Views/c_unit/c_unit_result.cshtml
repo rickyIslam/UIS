@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "c_unit_result";
+    Layout = "~/Views/Shared/_AdmissionSideNav.cshtml";
+}
+
+<h2 style="color:black; font-family:'Book Antiqua';text-align:center;text-decoration:underline;">Upload C-UNIT Result</h2>
+<div>&nbsp;</div>
+@using (Html.BeginForm("c_unit_result", "c_unit", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="excelfile" />
+    <br />
+    <input type="submit" class="form-control" value="Import" />
+
+}
+

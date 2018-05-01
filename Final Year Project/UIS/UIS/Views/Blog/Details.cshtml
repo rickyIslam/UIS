@@ -1,0 +1,30 @@
+﻿@model UIS.Models.Post
+@{
+    ViewBag.Title = "Details";
+}
+
+@*<h2>বিস্তারিত পোষ্ট</h2>*@
+<h2>@ViewBag.Message</h2>
+<div class="panel-body panel-success">
+
+    @if (Session["userNick"] == null)
+    {
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @PostHelperVisitor.Render(Model, Html, true)
+            </div>
+        </div>
+    }
+
+    else
+    {
+      
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @PostHelperDetails.Render(Model, Html, false, false, true, false)
+            </div>
+        </div>
+    }
+
+</div>

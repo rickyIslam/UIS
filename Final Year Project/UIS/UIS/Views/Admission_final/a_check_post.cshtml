@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "a_check_post";
+    Layout = "~/Views/Shared/_AdmissionSideNav.cshtml";
+}
+
+<h2>@ViewBag.a</h2>
+<h2>@ViewBag.b</h2>
+<h2>@ViewBag.c</h2>
+
+<div class="form-group">
+    <label for="email">Email address:</label>
+    
+    <input type="email" class="form-control" disabled id="email">
+    <script>
+        var javaScript = "<%=@ViewBag.a%>";
+        document.getElementById("email").value = javaScript;
+    </script>
+
+</div>
+

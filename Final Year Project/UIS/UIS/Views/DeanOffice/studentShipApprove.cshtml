@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "studentShipApprove";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+    int checkingVar = 0;
+}
+
+<div class="row">
+    <div class="col-lg-1">
+
+    </div>
+
+    <div class="col-lg-10">
+        <h1>Transaction Details From The Bank Server API</h1>
+        <div>&nbsp; &nbsp;</div>
+    </div>
+
+    <div class="col-lg-1">
+
+    </div>
+</div>
+
+<h1 style="color:red;text-align:center;">@ViewBag.avlMsg </h1>
+
+@{
+    foreach (var item in ViewBag.studentShipList)
+    {
+        string givenAmount = Convert.ToString(ViewBag.amount);
+        double temp = (double)item.amount;
+        string BankAmount = temp.ToString();
+
+        if (item.studentId == ViewBag.studentId && item.receiptId == ViewBag.receiptId && givenAmount == BankAmount)
+        {
+
+            checkingVar = checkingVar + 1;
+        //Tabel Is Starteed From Here .....
+        <div class="row">
+            <div>&nbsp;</div>
+            <div class="col-md-3">
+
+            </div>
+
+            <div class="col-md-6">
+                <ul class="list-group">
+
+                    <li class="list-group-item2"><b>Student ID:</b>@item.studentId</li>
+                    <li class="list-group-item2"><b>Faculty Of:</b>@item.faculty</li>
+                    <li class="list-group-item2"><b>Date & Time Of Pay:</b>@item.dateTime</li>
+                    <li class="list-group-item2"><b>Paying Purpose:</b>@item.purpose</li>
+                    <li class="list-group-item2"><b>Receipt Id:</b> @item.receiptId</li>
+                    <li class="list-group-item2"><b>Amount:</b> @item.amount</li>
+                    <li class="list-group-item2"><b>Status:</b><b style="color:green; text-align:center;">Given Transaction Is Correct ! You May Proceed ...</b></li>
+
+                </ul>
+
+                @using (Html.BeginForm("ApprovementEntry", "DeanOffice", new { studentId = @item.studentId, dateTime = @item.dateTime, faculty = @item.faculty, receiptId = @item.receiptId, amount = @item.amount, purpose = @item.purpose }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+
+                    if (ViewBag.buttonStatus == "on")
+                    {
+                        <input type="submit" value="Go To Next Step >>" class="btn btn-success" style="float:right" />
+                        <input type="submit" value="Home" class="btn btn-success" style="float:left;" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="Go To Next Step >>" disabled class="btn btn-success" style="float:right" />
+                        <input type="submit" value="Home" disabled class="btn btn-success" style="float:left;" />
+                    }
+
+
+
+                }
+
+            </div>
+
+            <div class="col-md-3">
+
+
+            </div>
+
+
+        </div>
+
+
+    }
+
+    else
+    {
+        
+      //  checkingVar = checkingVar + 1;
+    }
+    
+    }
+}
+
+@{
+    if (checkingVar == 0)
+    {
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <h1 style="color:red;">Sorry ! Transaction Detail Doesn't Match With Bank Server !!!</h1>
+        checkingVar = 0;
+    }
+}

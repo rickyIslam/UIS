@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AdmissionModelStoreContainer" CdmEntityContainer="AdmissionContext">
+    <EntitySetMapping Name="a_alloted">
+      <EntityTypeMapping TypeName="AdmissionModel.a_alloted">
+        <MappingFragment StoreEntitySet="a_alloted">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="allotedFaculty" ColumnName="allotedFaculty" />
+          <ScalarProperty Name="allotedHall" ColumnName="allotedHall" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="a_choice">
+      <EntityTypeMapping TypeName="AdmissionModel.a_choice">
+        <MappingFragment StoreEntitySet="a_choice">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userRoll" ColumnName="userRoll" />
+          <ScalarProperty Name="merit_position" ColumnName="merit_position" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="first_choice" ColumnName="first_choice" />
+          <ScalarProperty Name="second_choice" ColumnName="second_choice" />
+          <ScalarProperty Name="third_choice" ColumnName="third_choice" />
+          <ScalarProperty Name="forth_choice" ColumnName="forth_choice" />
+          <ScalarProperty Name="fifth_choice" ColumnName="fifth_choice" />
+          <ScalarProperty Name="sixth_choice" ColumnName="sixth_choice" />
+          <ScalarProperty Name="seventh_choice" ColumnName="seventh_choice" />
+          <ScalarProperty Name="first_hall" ColumnName="first_hall" />
+          <ScalarProperty Name="second_hall" ColumnName="second_hall" />
+          <ScalarProperty Name="third_hall" ColumnName="third_hall" />
+          <ScalarProperty Name="forth_hall" ColumnName="forth_hall" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="allotCounts">
+      <EntityTypeMapping TypeName="AdmissionModel.allotCount">
+        <MappingFragment StoreEntitySet="allotCount">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="allotedFaculty" ColumnName="allotedFaculty" />
+          <ScalarProperty Name="allotedHall" ColumnName="allotedHall" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_alloted">
+      <EntityTypeMapping TypeName="AdmissionModel.b_alloted">
+        <MappingFragment StoreEntitySet="b_alloted">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="allotedFaculty" ColumnName="allotedFaculty" />
+          <ScalarProperty Name="allotedHall" ColumnName="allotedHall" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="b_choice">
+      <EntityTypeMapping TypeName="AdmissionModel.b_choice">
+        <MappingFragment StoreEntitySet="b_choice">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userRoll" ColumnName="userRoll" />
+          <ScalarProperty Name="merit_position" ColumnName="merit_position" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="first_hall" ColumnName="first_hall" />
+          <ScalarProperty Name="second_hall" ColumnName="second_hall" />
+          <ScalarProperty Name="third_hall" ColumnName="third_hall" />
+          <ScalarProperty Name="forth_hall" ColumnName="forth_hall" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="check_eligible">
+      <EntityTypeMapping TypeName="AdmissionModel.check_eligible">
+        <MappingFragment StoreEntitySet="check_eligible">
+          <ScalarProperty Name="auto_id" ColumnName="auto_id" />
+          <ScalarProperty Name="roll_no" ColumnName="roll_no" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="studentDbs">
+      <EntityTypeMapping TypeName="AdmissionModel.studentDb">
+        <MappingFragment StoreEntitySet="studentDb">
+          <ScalarProperty Name="studentRoll" ColumnName="studentRoll" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="father" ColumnName="father" />
+          <ScalarProperty Name="hsc_roll" ColumnName="hsc_roll" />
+          <ScalarProperty Name="ssc_roll" ColumnName="ssc_roll" />
+          <ScalarProperty Name="hsc_reg" ColumnName="hsc_reg" />
+          <ScalarProperty Name="ssc_reg" ColumnName="ssc_reg" />
+          <ScalarProperty Name="photoLink" ColumnName="photoLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_alloted">
+      <EntityTypeMapping TypeName="AdmissionModel.c_alloted">
+        <MappingFragment StoreEntitySet="c_alloted">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="allotedHall" ColumnName="allotedHall" />
+          <ScalarProperty Name="allotedFaculty" ColumnName="allotedFaculty" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="c_choice">
+      <EntityTypeMapping TypeName="AdmissionModel.c_choice">
+        <MappingFragment StoreEntitySet="c_choice">
+          <ScalarProperty Name="forth_hall" ColumnName="forth_hall" />
+          <ScalarProperty Name="third_hall" ColumnName="third_hall" />
+          <ScalarProperty Name="second_hall" ColumnName="second_hall" />
+          <ScalarProperty Name="first_hall" ColumnName="first_hall" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="merit_position" ColumnName="merit_position" />
+          <ScalarProperty Name="userRoll" ColumnName="userRoll" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

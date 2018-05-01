@@ -1,0 +1,43 @@
+﻿@using System.Web.Mvc;
+@using UIS.Models;
+
+
+@helper Render(Post post, System.Web.Mvc.HtmlHelper html, bool showComment)
+
+{
+        var myVar = post.Image;
+         
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span><b>@post.Title</b></span>
+        </div>
+
+        <div class="panel-body">
+            <span>লেখকঃ @post.UserName</span>
+            <span class="pull-right"> @post.DateTime</span>
+        </div>
+
+        <div class="panel-body panel-success">
+           
+
+            <img src="~/Images/@myVar" alt="" class="img-thumbnail" width="304" height="236">
+
+            @{
+                string shortPost;
+                string postBody = @post.Body;
+                int length = postBody.Length;
+
+                //if (length == 0) shortPost = postBody.Substring(0, 0);
+                //else shortPost = postBody.Substring(0, 200);
+
+                if (length <= 300) shortPost = postBody;
+                else shortPost = postBody.Substring(0, 300) + "...";
+
+            }
+            <p style="text-align:justify;"><span>@shortPost</span></p>
+            <span><a id="more" href="@Href("~/Blog/AdminPostDetails/" + post.ID)">Read More...</a></span>
+
+
+        </div>
+    </div>
+}

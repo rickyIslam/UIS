@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "uploadAllotedList";
+    Layout = "~/Views/Shared/_AdmissionSideNav.cshtml";
+}
+
+
+<div class="row">
+
+    <div class="pull-left">
+        <h1 style="font-family:'Times New Roman';text-align:center;">Upload C-UNIT Alloted List</h1>
+    </div>
+
+    <div class="pull-right">
+        @using (Html.BeginForm("uploadAllotedList", "c_unit", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <button class="btn  btn-primary" type="submit">
+                Upload To Database
+            </button>
+        }
+    </div>
+
+</div>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Student Id</th>
+            <th>Alloted Faculty</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @{
+
+            foreach (var item in Session["c_completeAllotedList"] as IEnumerable<UIS.Models.allotedList>)
+            {
+
+                <tr>
+                    <td>@item.studentId</td>
+                    <td>@item.allotedChoice</td>
+                    <td>@item.allotedHall</td>
+                </tr>
+            }
+
+        }
+
+
+
+    </tbody>
+
+</table>
+
+
+
+

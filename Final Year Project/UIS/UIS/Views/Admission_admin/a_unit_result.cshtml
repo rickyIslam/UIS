@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "a_unit_result";
+    Layout = "~/Views/Shared/_AdmissionSideNav.cshtml";
+}
+
+<h2>a_unit_result</h2>
+@using (Html.BeginForm("a_unit_result", "Admission_admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="excelfile" />
+    <br />
+    <input type="submit" class="form-control" value="Import" />
+}
+
+
+

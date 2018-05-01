@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "CodeAuth";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+
+    function validateForm() {
+        var x = document.forms["CodeAuth"]["code"].value;
+        if (x == null || x == "") {
+            alert("মেইলের কোডটি সঠিকভাবে পূরন করুন");
+            return false;
+        }
+    }
+
+
+</script>
+
+<h2>Please Check <span style="color:red">@Session["userEmail"].ToString() </span>For Confirmation Code চেক করুন </h2>
+
+<div class="row">
+    <div class="col-lg-5">
+
+        <h2></h2>
+
+        @using (Html.BeginForm("CodeAuth", "Account", FormMethod.Post, new { name = "CodeAuth", id = "CodeAuth", onsubmit = "return validateForm()" }))
+        {
+            <div class="form-group">
+                <label for="email">Your Confirmation Code:</label>
+               
+                <input type="text" class="form-control" name="code" id="code">
+                <div>&nbsp;</div>
+                <button type="submit" class="btn btn-success">Submit Preview</button>
+                
+            </div>
+        }
+
+
+
+    </div>
+</div>
+
+
+

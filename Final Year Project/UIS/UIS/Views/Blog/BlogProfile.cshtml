@@ -1,0 +1,210 @@
+﻿@using UIS.Models;
+@model IEnumerable<Post>
+
+
+@{
+    ViewBag.Title = "";
+}
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-3">
+            <div>&nbsp;</div>
+
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><p>আপনার প্রোফাইল</p></div>
+                    <div class="panel-body">
+
+                        @{
+                            string propic = Session["photo"].ToString();
+                        }
+
+
+                        <img src="~/proPic/@propic" alt="" class="img-thumbnail" width="300" height="300">
+                        <p>পুরো নামঃ<strong>@Session["userName"].ToString()</strong></p>
+                        <p>সংক্ষিপ্ত নামঃ<strong>@Session["userNick"].ToString()</strong></p>
+                        <p>ফ্যাকাল্টিঃ<strong>@Session["userFaculty"].ToString()</strong></p>
+                        <p>স্টুডেন্ট আইডিঃ<strong>@Session["userId"].ToString()</strong></p>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div>&nbsp;</div>
+
+
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><p>একনজরে আপনার লেখা ব্লগ গুলো</p></div>
+                    <div class="panel-body">
+
+                    
+
+                        @foreach (Post post in Model.Reverse())
+                        {
+                           
+
+                            @SideRecentPosts.Render(post, Html)
+                       
+                          
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+
+            
+
+        </div>
+
+        <div class="col-md-6">
+            <div>&nbsp;</div>
+           
+            @if (Session["userNick"] != null)
+            {
+                <div class="alert alert-success">
+                    <p class="text-center">আপনার ব্লগে আপনাকে স্বাগতম...<strong>@Session["userNick"].ToString() !!!&nbsp;</strong><a href="~/Blog/CreatePost">নতুন ব্লগ লিখুন</a></p>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    <p class="text-center">  সাইটের পূর্ণ সুবিধা পেতে অনুগ্রহ পূর্বক <strong><a href="~/Blog/LogInStudent">লগিন করুন</a></strong></p>
+                </div>
+            }
+
+            <div class="row">
+                <div class="col-md-12">
+                    @foreach (Post post in Model.Reverse())
+                    {
+
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                @PostAdminHelper.Render(post, Html, true)
+                            </div>
+                        </div>
+
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div>&nbsp;</div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">বিজ্ঞাপনের জন্য নির্ধারিত স্থান</div>
+                <div class="panel-body">
+
+                    @* ক্যারোসল শুরু *@
+
+
+                    <div class="container">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <li data-target="#myCarousel" data-slide-to="3"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="~/advertise/techshop.png" alt="Chania">
+                                    <div class="carousel-caption">
+                                        @*<h3>Chania</h3>
+                                    <p>The atmosphere in Chania has a touch of Florence and Venice.</p>*@
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="~/advertise/rokomari.jpg" alt="Chania">
+                                    <div class="carousel-caption">
+                                        @*<h3>Chania</h3>
+                                    <p>The atmosphere in Chania has a touch of Florence and Venice.</p>*@
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="~/advertise/techtunes.jpg" alt="Chania">
+                                    <div class="carousel-caption">
+                                        @*<h3>Flowers</h3>
+                                    <p>Beatiful flowers in Kolymbari, Crete.</p>*@
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <img src="~/advertise/samu.jpg" alt="Chania">
+                                    <div class="carousel-caption">
+                                        @*<h3>Flowers</h3>
+                                    <p>Beatiful flowers in Kolymbari, Crete.</p>*@
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            @* ক্যারোসল শেষ *@
+
+
+
+           
+            @*<div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><p> গুরুত্ত্বপূর্ণ সংবাদপত্রগুলো</p></div>
+                    <div class="panel-body">
+
+                        <ul>
+                            <li><a href="http://www.techtunes.com.bd/"><b>টেকটিউন্স ডট কম</b></a></li>
+                            <li><a href="http://www.tunerpage.com/"><b>টিউনারপেজ ডট কম</b></a></li>
+                            <li><a href="http://www.pchelplinebd.com/"><b>পিসি হেল্পলাইন বিডি ডট কম</b></a></li>
+                            <li><a href="http://rrfoundation.net/"><b>আর.আর. ফাউন্ডেশান</b></a></li>
+                            <li><a href="http://techtweets.com.bd/"><b>টেক টুইটস ডট কম</b></a></li>
+                            <li><a href="http://www.bigganprojukti.com/"><b>বিজ্ঞান প্রযুক্তি ডট কম</b></a></li>
+                            <li><a href="http://techmasterblog.com/"><b>টেকমাস্টারব্লগ ডট কম</b></a></li>
+                            <li><a href="http://mashable.com/"><b>Mashable Dot Com</b></a></li>
+                            <li><a href="http://gizmodo.com/"><b>Gizmodo Dot Com</b></a></li>
+                            <li><a href="http://gigaom.com/"><b>GigaOm Dot Com</b></a></li>
+                            <li><a href="http://www.zdnet.com/"><b>Zd Net Dot Com</b></a></li>
+                            <li><a href="http://www.ranker.com/review/techcrunch-com/76437923?ref=name_691881"><b>Tech Crunch Dot Com</b></a></li>
+                            <li><a href="http://www.machinehappy.com/"><b>Mechine Happly Dot Com</b></a></li>
+                            <li><a href="http://www.pandodaily.com/"><b>Pando Daily Dot Com</b></a></li>
+                            <li><a href="http://www.makeuseof.com/"><b>MakeUserOf Dot Com</b></a></li>
+                            <li><a href="http://lifehacker.com/"><b>Life Hacker Dot Com</b></a></li>
+                            <li><a href="http://www.digitaltrends.com/"><b>Digital Trend Dot COm</b></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>*@
+
+        </div>
+    </div>
+</div>
+
+
+

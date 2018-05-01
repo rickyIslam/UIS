@@ -1,0 +1,23 @@
+﻿@using UIS.Models;
+@using System.Web.Mvc;
+
+
+@helper Render(Comment comment, System.Web.Mvc.HtmlHelper html)
+{
+
+    string shortComment;
+    string CommentBody = @comment.Body;
+    int length = CommentBody.Length;
+
+
+    if (length <= 150) shortComment = CommentBody;
+    else shortComment = CommentBody.Substring(0, 100) + "...";
+
+
+
+
+
+    <a href="@Href("~/Blog/Details/" + comment.PostID)"><p style="text-align:justify;"><b style="color: #303030">@comment.UserName</b><span style="color: #5C5C5C; "> মন্তব্য করেছেনঃ </span><b  style="color: #303030">"@shortComment"</b></p></a>
+
+
+}

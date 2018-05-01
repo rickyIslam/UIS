@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <script src="~/ckeditor/ckeditor.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <link href="~/Content/CustomBootstrap.css" rel="stylesheet" />
+    @*<link href="~/Content/adorsholipi_stylesheet.css" rel="stylesheet" />*@
+
+    <script type="text/javascript">
+        function confirm_alert(node) {
+            return confirm("Sorry !!! You Are Not Logged In.");
+        }
+    </script>
+
+
+
+</head>
+<body>
+
+    @* Navbar starts Here *@
+    <nav class="my-navbar navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#"><b>Home</b></a></li>
+                <li><a href="~/Blog/Index"><b style="color:white;">PIS Member's Forum</b></a></li>
+
+                @if (Session["userId"] != null)
+                {
+
+                    <li><a href="~/StudentInfo/Profile"><b>Student Information System</b></a></li>
+                }
+                else
+                {
+                    <li><a href="#" onclick="return confirm_alert(this);"><b>Student Information System</b></a></li>
+
+                }
+                
+                @*<li><a href="#"><b>Phone Book</b></a></li>*@
+                <li><a href="~/Admission_student/check"><b>PSTU Admission System</b></a></li>
+                @*<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Campus Blog</b> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="divider"></li>
+                            <li><a href="~/Blog/CreatePost">Visit Blog Site</a></li>
+                            @if (Session["userId"] != null)
+                            {
+                                <li class="divider"></li>
+                                <li><a href="~/Blog/CreatePost">Write New Blog</a></li>
+                                <li class="divider"></li>
+                                <li><a href="@Href("~/Blog/BlogProfile/" + Session["userId"])">My Blog</a></li>
+                            }
+
+                        </ul>
+                    </li>*@
+            </ul>
+            <div class="col-sm-3 col-md-3 pull-right">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control " placeholder="Search" name="q">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default " type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+
+            @if (Session["userNick"] != null)
+            {
+                string nick = Session["userNick"].ToString();
+                string pic = Session["photo"].ToString();
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b style="color: #00FF00; font-size: 18.5px;"><img src="~/proPic/@pic" class="img-circle" width="20" height="20">@nick</b><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="divider"></li>
+                            <li><a href="@Href("~/Blog/logOut")">Log Out</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            }
+            else
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b style="color: red; font-size: 18.5px;">User Account</b><b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="~/Account/loginstudent">Log In</a></li>
+                            <li class="divider"></li>
+                            <li><a href="~/Blog/MailAuth">Sign Up</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            }
+
+
+        </div><!-- /.navbar-collapse -->
+    </nav>
+
+    @* Navbar Ends Here *@
+
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+
+
+    <div class="container body-content">
+        
+            @RenderBody()
+       
+       
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

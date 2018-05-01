@@ -1,0 +1,88 @@
+﻿@using UIS.Models;
+@model IEnumerable<studentDb>
+@{
+    ViewBag.Title = "admit_stopage";
+    Layout = "~/Views/Shared/_admitCardHeader.cshtml";
+}
+
+@{
+    foreach (var item in Model)
+    {
+
+        <div class="container">
+            <div class="row">
+
+                <div class="pull-left">
+                    <img src="~/AdmissionPhoto/@item.photoLink" class="img-thumbnail" alt="pstu logo" width="150" height="150">
+                </div>
+
+                <div class="pull-right">
+                    <img src="/Picture/pstu_logo.jpg" alt="" class="img-thumbnail" width="150" height="150">
+                </div>
+
+            </div>
+
+            <div class="row">
+                <h3 style="text-align:center">Patuakhali Science and Technology University</h3>
+                <p style="text-align:center;">Dumki, Patuakhali- 8602</p>
+                <p style="text-align:center;"><b>ADMIT CARD</b></p>
+            </div>
+
+            <div class="row">
+
+                <div class="pull-left">
+                    <h3 class="well-lg">UNIT-@item.unit</h3>
+                </div>
+
+                <div class="pull-right">
+                    <h3 class="well-lg">Exam Roll-@item.studentRoll</h3>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <p style="text-decoration:solid;font-family:'Times New Roman';font-size:20px">Student's Name:<b>@item.name</b></p>
+                <p style="text-decoration:solid;font-family:'Times New Roman';font-size:20px">Father's Name:<b>@item.father</b></p>
+                <p style="text-decoration:solid;font-family:'Times New Roman';font-size:20px">HSC Roll No:<b>@item.hsc_roll</b></p>
+                <p style="text-decoration:solid;font-family:'Times New Roman';font-size:20px">SSC Roll No:<b>@item.ssc_roll</b></p>
+            </div>
+
+
+            <div>&nbsp;</div>
+
+
+            <div class="row">
+
+                <div style="padding:20px;" class="pull-left">
+                    <p style="text-align:center;">-----------------------------<br>Signature Of Examinar<br /></p>
+                </div>
+
+                <div style="padding:20px;" class="pull-right">
+                    <p style="text-align:center;">-----------------------------<br>Signature Of student<br /></p>
+                </div>
+
+            </div>
+
+            <div>
+                &nbsp;
+            </div>
+            <div>&nbsp;</div>
+            <div class="pull-left">
+                <p style="text-decoration:underline;font-family:SolaimanLipi;">পরীক্ষার্থীদের জন্য নির্দেশাবলীঃ</p>
+                <p style="font-family: SolaimanLipi;">
+                    <br> ০১)ইস্যুকৃত প্রবেশপত্র ছাড়া কোন পরীক্ষার্থীকে পরীক্ষার হলে প্রবেশ করতে দেয়া হবে না । <br />
+                    <br> ০২)পরীক্ষার সময়সূচি ও স্থান নিজ দায়িত্ত্বে জেনে নিতে হবে ।<br />
+                    <br>০৩)পরীক্ষা খাতার কাভার পৃষ্ঠায় মুদ্রিত নির্দেশাবলী পরীক্ষায় যথাযথভাবে অনুসরন করবে।<br />
+                    <br>০৪)পরীক্ষার হলে দায়িত্ত্বপ্রাপ্তদের নির্দেশাবলী যথাযথভাবে মেনে চলবে। <br />
+                    <br> ০৫)পরীক্ষার হলে আইন শৃংখলা ভংগকারী ও শাস্তিযোগ্য অপরাধকারী পরীক্ষার্থীর বিরুদ্ধে উপযুক্ত আইনানুগ ব্যাবস্থা নেয়া হবে। <br />
+                </p>
+            </div>
+
+        </div>
+
+    }
+}
+
+
+

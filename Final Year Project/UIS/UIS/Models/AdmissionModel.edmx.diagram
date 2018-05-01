@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c72114a2b7fe41e38f5fa242f2c51a33" Name="Diagram1">
+        <EntityTypeShape EntityType="AdmissionModel.a_alloted" Width="1.5" PointX="4" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdmissionModel.a_choice" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdmissionModel.allotCount" Width="1.5" PointX="2.125" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdmissionModel.b_alloted" Width="1.5" PointX="5.875" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdmissionModel.b_choice" Width="1.5" PointX="5.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdmissionModel.check_eligible" Width="1.5" PointX="9.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdmissionModel.studentDb" Width="1.5" PointX="2" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="AdmissionModel.FK_a_alloted_a_choice" ManuallyRouted="false" />
+        <AssociationConnector Association="AdmissionModel.FK_a_alloted_studentDb1" ManuallyRouted="false" />
+        <AssociationConnector Association="AdmissionModel.FK_b_alloted_b_choice" ManuallyRouted="false" />
+        <AssociationConnector Association="AdmissionModel.FK_b_alloted_studentDb1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AdmissionModel.c_alloted" Width="1.5" PointX="3.875" PointY="0.5" />
+        <EntityTypeShape EntityType="AdmissionModel.c_choice" Width="1.5" PointX="9.5" PointY="0.5" />
+        <AssociationConnector Association="AdmissionModel.FK_c_alloted_c_choice" />
+        <AssociationConnector Association="AdmissionModel.FK_c_alloted_studentDb" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

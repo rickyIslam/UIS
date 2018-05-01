@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*@Styles.Render("~/CSS")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/CSS/bootstrap.css" rel="stylesheet" />
+    <link href="~/CSS/bootstrap.min.css" rel="stylesheet" />
+
+
+</head>
+@* Add ng-app="MyApp" means <body> element is the owner of AngularJs Application  *@
+<body ng-app="apiModule">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @* Add Angular Library Here *@
+    @Scripts.Render("~/bundles/angular")
+    @* Add MyApp.js here *@
+    <script src="~/Scripts/MyApp.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "a_unit_waiting";
+    Layout = "~/Views/Shared/_AdmissionSideNav.cshtml";
+}
+
+
+
+<div class="col-md-9">
+    <h2 style="color:black; font-family:'Book Antiqua';text-align:center;text-decoration:underline;">A-UNIT Waiting List</h2>
+    <div>&nbsp;</div>
+    <div class="Container">
+        <input type="text" id="Search" class="form-control" />
+    </div>
+    <br />
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Serial No.</th>
+                <th>Student Id</th>
+                <th>Alloted Faculty</th>
+                <th>Alloted Hall</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @{
+                foreach (var item in Model)
+                {
+                    <tr class="Search">
+                        <td>@item.id</td>
+                        <td>@item.studentId</td>
+                        <td>@item.allotedFaculty</td>
+                        <td>@item.allotedHall</td>
+                        <td>
+                            <a href="@Href("~/Admission_final/a_check_post/"+item.studentId +"?"+"allotedFaculty="+item.allotedFaculty+"&"+"allotedHall="+ item.allotedHall)">Further Process</a>
+                        </td>
+                    </tr>
+
+                }
+            }
+
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-3">
+    <h3 style="color:black; font-family:'Book Antiqua';text-align:center;text-decoration:underline;">Remaining Seat</h3>
+   <div>&nbsp;</div>
+    <h4 style="color:black; font-family:'Book Antiqua';">Faculty Of AG:<span style="color:red;">&nbsp;<b>@ViewBag.ag_seat</b></span></h4>
+    <h4 style="color:black; font-family:'Book Antiqua';">Faculty Of Fish:<span style="color:red">&nbsp;<b>@ViewBag.fish_seat</b></span></h4>
+    <h4 style="color:black; font-family:'Book Antiqua';">Faculty Of NFS:<span style="color:red">&nbsp;<b>@ViewBag.nfs_seat</b></span></h4>
+    <h4 style="color:black; font-family:'Book Antiqua';">Faculty Of DVM:<span style="color:red">&nbsp;<b>@ViewBag.dvm_seat</b></span></h4>
+    <h4 style="color:black; font-family:'Book Antiqua';">Faculty Of DM:<span style="color:red">&nbsp;<b>@ViewBag.dm_seat</b></span></h4>
+    <h4 style="color:black; font-family:'Book Antiqua';">Faculty Of AH:<span style="color:red">&nbsp;<b>@ViewBag.ah_seat</b></span></h4>
+    <h4 style="color:black; font-family:'Book Antiqua';">Faculty Of LM:<span style="color:red">&nbsp;<b>@ViewBag.lm_seat</b></span></h4>
+ 
+
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+
+        $("#Search").keyup(function () {
+            var searchText = $("#Search").val();
+            $(".Search").each(function () {
+                if (!Contains($(this).text(), searchText)) {
+                    $(this).hide();
+                }
+
+                else {
+                    $(this).show();
+                }
+
+            });
+        });
+    });
+</script>
+
+
+
+

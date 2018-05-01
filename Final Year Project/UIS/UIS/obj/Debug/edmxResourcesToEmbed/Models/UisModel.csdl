@@ -1,0 +1,420 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AccountOfficeAuth">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="adminStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="admitStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="admitSemester" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="examDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="chat">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="timeDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="selectionCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PostID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Post" Relationship="Self.FK_Comments_Posts" FromRole="Comments" ToRole="Posts" />
+  </EntityType>
+  <EntityType Name="cse_courseLayout">
+    <Key>
+      <PropertyRef Name="courseCode" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="courseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="courseTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="creditHour" Type="Double" />
+    <Property Name="forSemester" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DeanApprovedEntry">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="receiptId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Double" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_DeanApprovedEntry_Student" FromRole="DeanApprovedEntry" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="DeanOfficeAuth">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="enrolledStudent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="payForSemester" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="receiptId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Double" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_enrolledStudents_Student" FromRole="enrolledStudents" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="enrollmentStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FiSemesterFee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="payForSemester" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="receiptId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CourseCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CourseTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Double" />
+    <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_FiSemesterFee_Student" FromRole="FiSemesterFee" ToRole="Student" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HallFee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="payForSemester" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="receiptId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Double" />
+    <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_HallFee_Student" FromRole="HallFee" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="HallProvostAuth">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Account_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HallTransaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="payForSemester" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="receiptId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Double" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_HallTransaction_Student" FromRole="HallTransaction" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="MailAuth">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="NoticeBoard">
+    <Key>
+      <PropertyRef Name="NoticeId" />
+    </Key>
+    <Property Name="NoticeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Topic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoticeTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoticeBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Posts" FromRole="Posts" ToRole="Comments" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_Posts_Student" FromRole="Posts" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="SemesterFee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="payForSemester" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="receiptId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Double" />
+    <Property Name="hallClearance" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_SemesterFee_Student" FromRole="SemesterFee" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="studentId" />
+    </Key>
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="nickName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Dob" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Registration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Session" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Hall" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Father" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mother" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Town" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Po" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Ps" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="District" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DeanApprovedEntries" Relationship="Self.FK_DeanApprovedEntry_Student" FromRole="Student" ToRole="DeanApprovedEntry" />
+    <NavigationProperty Name="enrolledStudents" Relationship="Self.FK_enrolledStudents_Student" FromRole="Student" ToRole="enrolledStudents" />
+    <NavigationProperty Name="FiSemesterFees" Relationship="Self.FK_FiSemesterFee_Student" FromRole="Student" ToRole="FiSemesterFee" />
+    <NavigationProperty Name="HallFees" Relationship="Self.FK_HallFee_Student" FromRole="Student" ToRole="HallFee" />
+    <NavigationProperty Name="HallTransactions" Relationship="Self.FK_HallTransaction_Student" FromRole="Student" ToRole="HallTransaction" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK_Posts_Student" FromRole="Student" ToRole="Posts" />
+    <NavigationProperty Name="SemesterFees" Relationship="Self.FK_SemesterFee_Student" FromRole="Student" ToRole="SemesterFee" />
+    <NavigationProperty Name="FiEnrolledStudents" Relationship="UISModel.FK_FiEnrolledStudents_Student" FromRole="Student" ToRole="FiEnrolledStudent" />
+  </EntityType>
+  <EntityType Name="TempBank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="payForSemester" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="receiptId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Double" />
+  </EntityType>
+  <Association Name="FK_Comments_Posts">
+    <End Role="Posts" Type="Self.Post" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeanApprovedEntry_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="DeanApprovedEntry" Type="Self.DeanApprovedEntry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="DeanApprovedEntry">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_enrolledStudents_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="enrolledStudents" Type="Self.enrolledStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="enrolledStudents">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FiSemesterFee_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="FiSemesterFee" Type="Self.FiSemesterFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="FiSemesterFee">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HallFee_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="HallFee" Type="Self.HallFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="HallFee">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HallTransaction_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="HallTransaction" Type="Self.HallTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="HallTransaction">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posts_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Posts" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="Posts">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SemesterFee_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="1" />
+    <End Role="SemesterFee" Type="Self.SemesterFee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="SemesterFee">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UisContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AccountOfficeAuths" EntityType="Self.AccountOfficeAuth" />
+    <EntitySet Name="adminStatus" EntityType="Self.adminStatu" />
+    <EntitySet Name="chats" EntityType="Self.chat" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="cse_courseLayout" EntityType="Self.cse_courseLayout" />
+    <EntitySet Name="DeanApprovedEntries" EntityType="Self.DeanApprovedEntry" />
+    <EntitySet Name="DeanOfficeAuths" EntityType="Self.DeanOfficeAuth" />
+    <EntitySet Name="enrolledStudents" EntityType="Self.enrolledStudent" />
+    <EntitySet Name="enrollmentStatus" EntityType="Self.enrollmentStatu" />
+    <EntitySet Name="FiSemesterFees" EntityType="Self.FiSemesterFee" />
+    <EntitySet Name="HallFees" EntityType="Self.HallFee" />
+    <EntitySet Name="HallProvostAuths" EntityType="Self.HallProvostAuth" />
+    <EntitySet Name="HallTransactions" EntityType="Self.HallTransaction" />
+    <EntitySet Name="MailAuths" EntityType="Self.MailAuth" />
+    <EntitySet Name="NoticeBoards" EntityType="Self.NoticeBoard" />
+    <EntitySet Name="Posts" EntityType="Self.Post" />
+    <EntitySet Name="SemesterFees" EntityType="Self.SemesterFee" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="TempBanks" EntityType="Self.TempBank" />
+    <AssociationSet Name="FK_Comments_Posts" Association="Self.FK_Comments_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeanApprovedEntry_Student" Association="Self.FK_DeanApprovedEntry_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="DeanApprovedEntry" EntitySet="DeanApprovedEntries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_enrolledStudents_Student" Association="Self.FK_enrolledStudents_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="enrolledStudents" EntitySet="enrolledStudents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FiSemesterFee_Student" Association="Self.FK_FiSemesterFee_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="FiSemesterFee" EntitySet="FiSemesterFees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HallFee_Student" Association="Self.FK_HallFee_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="HallFee" EntitySet="HallFees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HallTransaction_Student" Association="Self.FK_HallTransaction_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="HallTransaction" EntitySet="HallTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posts_Student" Association="Self.FK_Posts_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="Posts" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SemesterFee_Student" Association="Self.FK_SemesterFee_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="SemesterFee" EntitySet="SemesterFees" />
+    </AssociationSet>
+    <EntitySet Name="FiEnrolledStudents" EntityType="UISModel.FiEnrolledStudent" />
+    <AssociationSet Name="FK_FiEnrolledStudents_Student" Association="UISModel.FK_FiEnrolledStudents_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="FiEnrolledStudent" EntitySet="FiEnrolledStudents" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FiEnrolledStudent">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="payForSemester" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="receiptId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Double" />
+    <Property Name="CourseCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CourseTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student" Relationship="UISModel.FK_FiEnrolledStudents_Student" FromRole="FiEnrolledStudent" ToRole="Student" />
+  </EntityType>
+  <Association Name="FK_FiEnrolledStudents_Student">
+    <End Type="UISModel.Student" Role="Student" Multiplicity="0..1" />
+    <End Type="UISModel.FiEnrolledStudent" Role="FiEnrolledStudent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="FiEnrolledStudent">
+        <PropertyRef Name="studentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

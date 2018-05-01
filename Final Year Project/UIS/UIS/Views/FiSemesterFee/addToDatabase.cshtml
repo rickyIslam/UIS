@@ -1,0 +1,89 @@
+﻿@using UIS.Models;
+@{
+    ViewBag.Title = "addToDatabase";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+}
+
+<h1 style="text-align:center; font-family:Century;text-decoration:underline;">Your Selected Courses For FI Improvement</h1>
+<div>&nbsp;</div>
+<h2 style="text-align:center; font-family:'Times New Roman';">Total Credit Hour: @Session["tch"].ToString()</h2>
+<h2 style="text-align:center; font-family:'Times New Roman';">Total Payable Amount: @Session["tam"].ToString()</h2>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr style="color:red;">
+            <th>Course Code</th>
+            <th>Course Title</th>
+            <th>Credit Hour</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+
+
+        @{
+            foreach (FiEnrollment item in (List<FiEnrollment>)Session["cart"])
+            {
+                <tr>
+
+
+                    <td>@item.Courses.courseCode</td>
+                    <td>@item.Courses.courseTitle</td>
+                    <td>@item.Courses.creditHour</td>
+
+                </tr>
+
+            }
+        }
+
+
+
+    </tbody>
+
+</table>
+<br />
+
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <div class="panel-group">
+                <div class="panel panel-success">
+                    <div class="panel-heading">Enter Bank Transaction Information</div>
+                    <div class="panel-body">
+
+
+
+                        @using (Html.BeginForm("addToDatabase", "FiSemesterFee", new { payForSemester = Session["FienrolledSemester"].ToString() }, FormMethod.Post, new { enctype = "multipart/form-data", name = "enrolledSemester", id = "enrolledSemester", onsubmit = "return validateForm()" }))
+                        {
+                            <div class="form-group">
+                                <label for="usr">Receipt Number:</label>
+                                <input type="text" class="form-control" style="width:100%" id="receiptId" name="receiptId">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="usr">Payment Amount</label>
+                                <input type="text" class="form-control" style="width:100%" id="amount" name="amount">
+
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Submit Request" class="btn btn-primary pull-right" />
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+    </div>
+</div>

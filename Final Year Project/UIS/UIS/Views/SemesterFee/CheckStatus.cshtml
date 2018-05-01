@@ -1,0 +1,37 @@
+﻿@using UIS.Models;
+@*@model IEnumerable<SemesterFee>*@
+@model dynamic
+@{
+    ViewBag.Title = "CheckStatus";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+}
+<h1 style="text-align:center;text-decoration:underline;color:green;">Check Current Enrollment Status</h1>
+
+
+    @foreach (SemesterFee semesterFee in Model.semesterFees)
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                @StudentSemFees.Render(semesterFee, Html)
+
+            </div>
+        </div>
+
+    }
+
+<br />
+
+<h1 style="text-align:center;text-decoration:underline;color:red;">FI Enrollment Status</h1>
+
+@foreach (FiSemesterFee semesterFee in Model.fiSemesterFees)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            @FiStudentSemFees.Render(semesterFee, Html)
+
+        </div>
+    </div>
+
+}

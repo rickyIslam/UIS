@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "CreatePost";
+}
+
+<h2>CreatePost</h2>
+
+<script>
+    function validateForm()
+    {
+        var blogTitle = document.forms["CreatePost"]["blogTitle"].value;
+        var blogBody = document.forms["CreatePost"]["editor1"].value;
+
+        if(blogTitle==""||blogTitle==null)
+        {
+            alert("অনুগ্রহ পূর্বক পোষ্টটির শিরোনাম দিন");
+            return false;
+        }
+
+        if(blogBody==""||blogBody==null)
+        {
+            alart("অনুগ্রহ পূর্বক পোষ্টটি লিখুন");
+            return false;
+        }
+    }
+</script>
+
+ @*TempData["msg"] = "<script>alert('java script message');</script>";
+@Html.Raw(TempData["msg"])*@
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <div class="panel-group">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Share Your World...</div>
+                    <div class="panel-body">
+
+
+                       
+                        @using (Html.BeginForm("Index", "Blog", FormMethod.Post, new { enctype = "multipart/form-data", name = "CreatePost", id = "CreatePost", onsubmit="return validateForm()" }))
+                        {
+
+                            <div class="form-group">
+                                <label for="usr">শিরোনামঃ</label>
+                                <input type="text" class="form-control" style="width:100%" id="blogTitle" name="blogTitle">
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <textarea class="ckeditor" id="editor1" name="editor1" rows="10"></textarea>
+                            </div>
+                            
+                         
+
+                            <div class="well-lg">
+                                <label for="usr">ছবি সংযুক্ত করুনঃ</label>
+                                <input type="file" name="file" class="well" />
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="submit" value="Post" class="btn btn-primary pull-right" />
+                            </div>
+
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+
+
+    </div>
+</div>

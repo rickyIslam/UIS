@@ -1,0 +1,20 @@
+﻿@using UIS.Models;
+@model IEnumerable<HallFee>
+@{
+    ViewBag.Title = "HallCheckStatus";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+}
+
+<h1 style="text-align:center;text-decoration:underline;color:green;">Hall Clearances (Semster Wise)</h1>
+
+@foreach (HallFee hallFee in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            @StudentHallFees.Render(hallFee, Html)
+
+        </div>
+    </div>
+
+}

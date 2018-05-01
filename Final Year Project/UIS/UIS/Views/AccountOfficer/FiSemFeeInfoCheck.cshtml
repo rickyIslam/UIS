@@ -1,0 +1,144 @@
+﻿@{
+    ViewBag.Title = "FiSemFeeInfoCheck";
+    Layout = "~/Views/Shared/_AccountOfficerSideNav.cshtml";
+
+    int checkingVar = 0;
+}
+
+<div class="row">
+    <div class="col-lg-1">
+
+    </div>
+
+    <div class="col-lg-10">
+        <h1>Transaction Details From The Bank Server API</h1>
+        <div>&nbsp; &nbsp;</div>
+    </div>
+
+    <div class="col-lg-1">
+
+    </div>
+</div>
+
+
+@foreach (var TempBank in ViewBag.queryList)
+{
+    string givenAmount = Convert.ToString(ViewBag.amount);
+    double temp = (double)TempBank.amount;
+    string BankAmount = temp.ToString();
+
+
+    if (TempBank.studentId == ViewBag.studentId && TempBank.payForSemester == ViewBag.semester && givenAmount == BankAmount)
+    {
+        checkingVar = checkingVar + 1;
+        //Tabel Is Starteed From Here .....
+        <div class="row">
+            <div>&nbsp;</div>
+            <div class="col-md-3">
+
+            </div>
+
+            <div class="col-md-6">
+                <ul class="list-group">
+
+                    <li class="list-group-item2"><b>Student ID:</b>@TempBank.studentId</li>
+                    <li class="list-group-item2"><b>Faculty Of:</b>@TempBank.faculty</li>
+                    <li class="list-group-item2"><b>Date & Time Of Pay:</b>@TempBank.dateTime</li>
+
+                    @{
+
+        string dbPayableSemester = TempBank.payForSemester;
+        string payableSemester = null;
+        if (dbPayableSemester == "1")
+        {
+            payableSemester = "Level:1 / Semester:1";
+        }
+        if (dbPayableSemester == "2")
+        {
+            payableSemester = "Level:1 / Semester:2";
+        }
+        if (dbPayableSemester == "3")
+        {
+            payableSemester = "Level:2 / Semester:1";
+        }
+        if (dbPayableSemester == "4")
+        {
+            payableSemester = "Level:2 / Semester:2";
+        }
+        if (dbPayableSemester == "5")
+        {
+            payableSemester = "Level:3 / Semester:1";
+        }
+        if (dbPayableSemester == "6")
+        {
+            payableSemester = "Level:3 / Semester:2";
+        }
+        if (dbPayableSemester == "7")
+        {
+            payableSemester = "Level:4 / Semester:1";
+        }
+        if (dbPayableSemester == "8")
+        {
+            payableSemester = "Level:4 / Semester:2";
+        }
+
+                    }
+
+                    <li class="list-group-item2"><b>Pay For Semester:</b>@payableSemester</li>
+                    <li class="list-group-item2"><b>Receipt Id:</b> @TempBank.receiptId</li>
+                    <li class="list-group-item2"><b>Amount:</b> @TempBank.amount</li>
+                    <li class="list-group-item2"><b>Status:</b><b style="color:green; text-align:center;">Given Transaction Is Correct ! You May Proceed ...</b></li>
+                    <li class="list-group-item2">
+                        <b>
+
+                            @using (Html.BeginForm("FiApproval", "AccountOfficer", new { studentId = @TempBank.studentId, dateTime = @TempBank.dateTime, payForSemester = @TempBank.payForSemester, receiptId = @TempBank.receiptId, amount = @TempBank.amount, status = "Approved !!!" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <input type="submit" value="Approve This Student" class="btn btn-success" style="float:right" />
+                                <input type="submit" value="Back To List" class="btn btn-success" />
+
+
+                            }
+
+                        </b>
+                    </li>
+
+
+                </ul>
+
+            </div>
+
+            <div class="col-md-3">
+
+
+            </div>
+
+
+        </div>
+
+
+    }
+
+    else
+    {
+
+
+    }
+
+
+
+
+}
+
+
+@{
+    if (checkingVar == 0)
+    {
+        <div>&nbsp;</div>
+        <div>&nbsp;</div>
+        <h1 style="color:red;">Sorry ! Transaction Detail Doesn't Match With Our Server !!!</h1>
+
+    }
+}
+

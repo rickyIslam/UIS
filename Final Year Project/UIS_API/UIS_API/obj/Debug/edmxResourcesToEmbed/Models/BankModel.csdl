@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BankModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TempBank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="payForSemester" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="receiptId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="amount" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="deanOffice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="faculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="receiptId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="amount" Type="Double" />
+  </EntityType>
+  <EntityContainer Name="BankContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TempBanks" EntityType="Self.TempBank" />
+    <EntitySet Name="deanOffices" EntityType="Self.deanOffice" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,71 @@
+﻿ @{
+    ViewBag.Title = "check";
+    Layout = "~/Views/Shared/_AdmissionStudentSideNav .cshtml";
+}
+<script>
+    function validateForm() {
+        var userName = document.forms["Login"]["userRoll"].value;
+
+        if (userRoll == "" || userRoll == null) {
+            alert("Give Valid User Roll");
+            return false
+        }
+    }
+</script>
+
+@{
+    if (ViewBag.error != null)
+    {
+        <h2>@ViewBag.error</h2>
+    }
+    else
+    {
+
+        using (Html.BeginForm("check", "Admission_student", FormMethod.Post, new { name = "Login", id = "Login", onsubmit = "return validateForm()" }))
+        {
+            <div class="container">
+
+                <div class="well well-sm">
+
+                    <div class="row">
+                        <h3 class="text-center login-title" style="font-family:'Bookman Old Style';">Please Provide Your info</h3>
+                        <div class="col-sm-6 col-md-4 col-md-offset-4">
+                            <div>&nbsp;</div>
+                            <div class="account-wall">
+
+
+
+                                <form class="form-signin">
+
+                                    <div class="form-group">
+                                        <label for="sel1">Select Your Unit:</label>
+                                        <select class="form-control" id="unit" name="unit">
+                                            <option value="A">Unit-A</option>
+                                            <option value="B">Unit-B</option>
+                                            <option value="C">Unit-C</option>
+
+                                        </select>
+                                    </div>
+
+                                    <label for="email">Enter Your Roll No:</label>
+                                    <input type="text" name="userRoll" class="form-control" placeholder="Student Roll No" required autofocus>
+                                    <div> &nbsp; </div>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">
+                                        Submit Info
+                                    </button>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        }
+
+    }
+}
+
+

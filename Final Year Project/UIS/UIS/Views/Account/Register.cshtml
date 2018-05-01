@@ -1,0 +1,160 @@
+﻿@model UIS.Models.Student
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+<h2>VALUE: @ViewBag.msg</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Student</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.studentId, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.studentId, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.EditorFor(model => model.studentId, new { htmlAttributes = new { @class = "form-control", @rows = "3" } })
+                @*@Html.EditorFor(model => model.studentId, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.studentId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fullName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fullName)
+                @Html.ValidationMessageFor(model => model.fullName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.nickName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.nickName)
+                @Html.ValidationMessageFor(model => model.nickName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dob, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dob)
+                @Html.ValidationMessageFor(model => model.Dob)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Faculty, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Faculty)
+                @Html.ValidationMessageFor(model => model.Faculty)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Registration, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Registration)
+                @Html.ValidationMessageFor(model => model.Registration)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Session, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Session)
+                @Html.ValidationMessageFor(model => model.Session)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Hall, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Hall)
+                @Html.ValidationMessageFor(model => model.Hall)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Father, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Father)
+                @Html.ValidationMessageFor(model => model.Father)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Mother, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Mother)
+                @Html.ValidationMessageFor(model => model.Mother)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.parmanentAddress, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.parmanentAddress)
+                @Html.ValidationMessageFor(model => model.parmanentAddress)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Photo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Photo)
+                @Html.ValidationMessageFor(model => model.Photo)
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Photo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Photo)
+                @Html.ValidationMessageFor(model => model.Photo)
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

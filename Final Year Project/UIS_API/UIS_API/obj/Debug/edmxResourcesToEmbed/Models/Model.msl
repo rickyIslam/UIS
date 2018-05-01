@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="UISModelStoreContainer" CdmEntityContainer="UisContext">
+    <EntitySetMapping Name="AccountOfficeAuths">
+      <EntityTypeMapping TypeName="UISModel.AccountOfficeAuth">
+        <MappingFragment StoreEntitySet="AccountOfficeAuth">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="Account_Password" ColumnName="Account_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="adminStatus">
+      <EntityTypeMapping TypeName="UISModel.adminStatu">
+        <MappingFragment StoreEntitySet="adminStatus">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="admitStatus" ColumnName="admitStatus" />
+          <ScalarProperty Name="admitSemester" ColumnName="admitSemester" />
+          <ScalarProperty Name="examDate" ColumnName="examDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chats">
+      <EntityTypeMapping TypeName="UISModel.chat">
+        <MappingFragment StoreEntitySet="chat">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="timeDate" ColumnName="timeDate" />
+          <ScalarProperty Name="selectionCode" ColumnName="selectionCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="UISModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cse_courseLayout">
+      <EntityTypeMapping TypeName="UISModel.cse_courseLayout">
+        <MappingFragment StoreEntitySet="cse_courseLayout">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="courseCode" ColumnName="courseCode" />
+          <ScalarProperty Name="courseTitle" ColumnName="courseTitle" />
+          <ScalarProperty Name="creditHour" ColumnName="creditHour" />
+          <ScalarProperty Name="forSemester" ColumnName="forSemester" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeanApprovedEntries">
+      <EntityTypeMapping TypeName="UISModel.DeanApprovedEntry">
+        <MappingFragment StoreEntitySet="DeanApprovedEntry">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="purpose" ColumnName="purpose" />
+          <ScalarProperty Name="receiptId" ColumnName="receiptId" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeanOfficeAuths">
+      <EntityTypeMapping TypeName="UISModel.DeanOfficeAuth">
+        <MappingFragment StoreEntitySet="DeanOfficeAuth">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="Account_Password" ColumnName="Account_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enrolledStudents">
+      <EntityTypeMapping TypeName="UISModel.enrolledStudent">
+        <MappingFragment StoreEntitySet="enrolledStudents">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="payForSemester" ColumnName="payForSemester" />
+          <ScalarProperty Name="receiptId" ColumnName="receiptId" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enrollmentStatus">
+      <EntityTypeMapping TypeName="UISModel.enrollmentStatu">
+        <MappingFragment StoreEntitySet="enrollmentStatus">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FiEnrolledStudents">
+      <EntityTypeMapping TypeName="UISModel.FiEnrolledStudent">
+        <MappingFragment StoreEntitySet="FiEnrolledStudents">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="payForSemester" ColumnName="payForSemester" />
+          <ScalarProperty Name="receiptId" ColumnName="receiptId" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="CourseCode" ColumnName="CourseCode" />
+          <ScalarProperty Name="CourseTitle" ColumnName="CourseTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FiSemesterFees">
+      <EntityTypeMapping TypeName="UISModel.FiSemesterFee">
+        <MappingFragment StoreEntitySet="FiSemesterFee">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="payForSemester" ColumnName="payForSemester" />
+          <ScalarProperty Name="receiptId" ColumnName="receiptId" />
+          <ScalarProperty Name="CourseCode" ColumnName="CourseCode" />
+          <ScalarProperty Name="CourseTitle" ColumnName="CourseTitle" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HallFees">
+      <EntityTypeMapping TypeName="UISModel.HallFee">
+        <MappingFragment StoreEntitySet="HallFee">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="payForSemester" ColumnName="payForSemester" />
+          <ScalarProperty Name="receiptId" ColumnName="receiptId" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HallProvostAuths">
+      <EntityTypeMapping TypeName="UISModel.HallProvostAuth">
+        <MappingFragment StoreEntitySet="HallProvostAuth">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Employee_Id" ColumnName="Employee_Id" />
+          <ScalarProperty Name="Account_Password" ColumnName="Account_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HallTransactions">
+      <EntityTypeMapping TypeName="UISModel.HallTransaction">
+        <MappingFragment StoreEntitySet="HallTransaction">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="payForSemester" ColumnName="payForSemester" />
+          <ScalarProperty Name="receiptId" ColumnName="receiptId" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MailAuths">
+      <EntityTypeMapping TypeName="UISModel.MailAuth">
+        <MappingFragment StoreEntitySet="MailAuth">
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NoticeBoards">
+      <EntityTypeMapping TypeName="UISModel.NoticeBoard">
+        <MappingFragment StoreEntitySet="NoticeBoard">
+          <ScalarProperty Name="NoticeId" ColumnName="NoticeId" />
+          <ScalarProperty Name="Topic" ColumnName="Topic" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="NoticeTitle" ColumnName="NoticeTitle" />
+          <ScalarProperty Name="NoticeBody" ColumnName="NoticeBody" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="UISModel.Post">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SemesterFees">
+      <EntityTypeMapping TypeName="UISModel.SemesterFee">
+        <MappingFragment StoreEntitySet="SemesterFee">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="payForSemester" ColumnName="payForSemester" />
+          <ScalarProperty Name="receiptId" ColumnName="receiptId" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="hallClearance" ColumnName="hallClearance" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="UISModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="fullName" ColumnName="fullName" />
+          <ScalarProperty Name="nickName" ColumnName="nickName" />
+          <ScalarProperty Name="Dob" ColumnName="Dob" />
+          <ScalarProperty Name="Faculty" ColumnName="Faculty" />
+          <ScalarProperty Name="Registration" ColumnName="Registration" />
+          <ScalarProperty Name="Session" ColumnName="Session" />
+          <ScalarProperty Name="Hall" ColumnName="Hall" />
+          <ScalarProperty Name="Father" ColumnName="Father" />
+          <ScalarProperty Name="Mother" ColumnName="Mother" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Town" ColumnName="Town" />
+          <ScalarProperty Name="Po" ColumnName="Po" />
+          <ScalarProperty Name="Ps" ColumnName="Ps" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TempBanks">
+      <EntityTypeMapping TypeName="UISModel.TempBank">
+        <MappingFragment StoreEntitySet="TempBank">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="studentId" ColumnName="studentId" />
+          <ScalarProperty Name="faculty" ColumnName="faculty" />
+          <ScalarProperty Name="dateTime" ColumnName="dateTime" />
+          <ScalarProperty Name="payForSemester" ColumnName="payForSemester" />
+          <ScalarProperty Name="receiptId" ColumnName="receiptId" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

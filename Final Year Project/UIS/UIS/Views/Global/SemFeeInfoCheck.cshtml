@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "SemFeeInfoCheck";
+    Layout = "~/Views/Shared/_DeanOfficeSideNav.cshtml";
+}
+
+<h2>SemFeeInfoCheck</h2>
+
+@foreach(var item in ViewBag.queryList)
+{
+    <h1>@item.studentId</h1>
+}

@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "admitCart";
+    Layout = "~/Views/Shared/_AdmissionStudentSideNav .cshtml";
+}
+
+@using (Html.BeginForm("admitCart", "Admission_student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="container">
+        <h1 style="text-align:center;font-family:'Bookman Old Style';color:red;">Patuakhali Science and Technology University</h1>
+ 
+
+        <div class="well well-sm">
+
+            <div class="row">
+                <div class="col-md-1">
+
+                </div>
+                <div class="col-md-10">
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label class="" for="email">Students Name:</label>
+                            <input type="text" name="studentName" class="form-control pull-left" placeholder="Student Name" required autofocus>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="" for="email">Father's Name:</label>
+                            <input type="text" name="fatherName" class="form-control pull-right" placeholder="Student Father's Name" required autofocus>
+                        </div>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label class="" for="email">HSC Roll No:</label>
+                            <input type="text" name="hscRoll" class="form-control pull-left" placeholder="HSC Roll No" required autofocus>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="" for="email">SSC Roll No.</label>
+                            <input type="text" name="sscRoll" class="form-control pull-right" placeholder="SSC Roll No" required autofocus>
+                        </div>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label class="" for="email">HSC Reg No:</label>
+                            <input type="text" name="hscReg" class="form-control pull-left" placeholder="HSC Reg No" required autofocus>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="" for="email">SSC Reg No.</label>
+                            <input type="text" name="sscReg" class="form-control pull-right" placeholder="SSC Reg No" required autofocus>
+                        </div>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <label class="" for="email">Attach Your Photo</label>
+                            <input type="file" name="file" id="file" class="well-sm" />
+
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Sex:</label>
+                            <select class="form-control" id="sex" name="sex">
+                                <option value="m">Male</option>
+                                <option value="f">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>&nbsp;</div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-lg btn-primary btn-block pull-right" type="submit">
+                                Submit Info>>>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-1">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+}

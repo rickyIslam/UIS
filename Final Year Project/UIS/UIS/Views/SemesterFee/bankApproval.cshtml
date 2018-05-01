@@ -1,0 +1,149 @@
+﻿@using UIS.Models;
+@model IEnumerable<TempBank>
+
+@{
+    ViewBag.Title = "bankApproval";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+}
+
+<h2>@ViewBag.givenAmount</h2>
+
+
+
+
+<div class="row">
+    <div class="col-lg-1">
+
+    </div>
+
+    <div class="col-lg-10">
+        <h1>Transaction Details From The Bank Server</h1>
+        <div>&nbsp; &nbsp;</div>
+        <h2 style="color:red;">@ViewBag.notFount</h2>
+    </div>
+
+    <div class="col-lg-1">
+
+    </div>
+</div>
+
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-lg-3">
+
+            </div>
+
+            <div class="col-lg-6">
+  
+
+                @{
+        string status = null;
+        string givenAmount = ViewBag.givenAmount;
+        double tempVariable = (double)item.amount;
+        string bankAmount = tempVariable.ToString();
+
+        string givenSemester = ViewBag.givenSemester;
+        string bankSemester = item.payForSemester;
+
+        if (givenAmount.Equals(bankAmount) && givenSemester.Equals(bankSemester))
+        {
+            status = " Given Information Is Matched ! You May Approve !! ";
+
+            <h2>@Html.DisplayFor(modelItem => item.studentId) @Html.DisplayFor(modelItem => item.studentId) </h2>
+                    <p><h2>Student ID: @Html.DisplayFor(modelItem => item.amount) </h2></p>
+
+                    <ul class="list-group">
+
+                        <li class="list-group-item2"><b>Student ID:</b>@Html.DisplayFor(modelItem => item.studentId)</li>
+                        <li class="list-group-item2"><b>Faculty Of:</b>@Html.DisplayFor(modelItem => item.faculty)</li>
+                        <li class="list-group-item2"><b>Date & Time Of Pay:</b>@Html.DisplayFor(modelItem => item.dateTime)</li>
+
+                        @{
+            string dbPayableSemester = item.payForSemester.ToString();
+            string payableSemester = null;
+            if (dbPayableSemester == "1")
+            {
+                payableSemester = "Level:1 / Semester:1";
+            }
+            if (dbPayableSemester == "2")
+            {
+                payableSemester = "Level:1 / Semester:2";
+            }
+            if (dbPayableSemester == "3")
+            {
+                payableSemester = "Level:2 / Semester:1";
+            }
+            if (dbPayableSemester == "4")
+            {
+                payableSemester = "Level:2 / Semester:2";
+            }
+            if (dbPayableSemester == "5")
+            {
+                payableSemester = "Level:3 / Semester:1";
+            }
+            if (dbPayableSemester == "6")
+            {
+                payableSemester = "Level:3 / Semester:2";
+            }
+            if (dbPayableSemester == "7")
+            {
+                payableSemester = "Level:4 / Semester:1";
+            }
+            if (dbPayableSemester == "8")
+            {
+                payableSemester = "Level:4 / Semester:2";
+            }
+                        }
+
+                        <li class="list-group-item2"><b>Pay For Semester:</b>@payableSemester></li>
+                        <li class="list-group-item2"><b>Receipt Id:</b> @Html.DisplayFor(modelItem => item.receiptId)</li>
+                        <li class="list-group-item2"><b>Amount:</b> @Html.DisplayFor(modelItem => item.amount)</li>
+
+
+
+                        <li class="list-group-item2"><b>Status:</b>@status</li>
+                        <li class="list-group-item2">
+                            <b>
+                                <button type="button" class="btn btn-success" style="float:right">Approve This Student</button>
+                                <button type="button" class="btn btn-success">Back To List</button>
+
+                            </b>
+                        </li>
+
+
+                    </ul>
+
+
+        }
+
+        else
+        {
+           
+        }
+        
+        if(Model == null)
+        {
+            <h1 style="color:red;">We are Sorry ! This Transaction Detail Is Not Found In Bank Database !!</h1>
+        }
+
+                }
+
+
+
+
+
+
+            </div>
+
+            <div class="col-lg-3">
+
+            </div>
+        </div>
+
+
+
+    }
+}

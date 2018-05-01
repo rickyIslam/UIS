@@ -1,0 +1,141 @@
+﻿
+
+body {
+    background: #f6f7f9 !important;
+    font-family: 'SolaimanLipi', Arial, sans-serif !important;
+    font-size: 15px ;
+    
+}
+
+
+a {
+       
+       font-family: 'SolaimanLipi', Arial, sans-serif !important;
+}
+
+a:hover {
+      
+       font-family: 'SolaimanLipi', Arial, sans-serif !important;
+}
+
+.fixed {
+    position: fixed;
+    top: 150px;
+}
+
+.panel-default > .panel-body {
+  
+    background-color: #F9F9F9;
+   
+}
+
+.dropdown-menu>li>a:hover{
+      background-color: #8080C0;
+}
+
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 7px 15px;
+    margin-bottom: -1px;
+    background-color: #e9ebee;
+    border: 1px solid #6f5499;
+}
+
+.list-group-item2 {
+    position: relative;
+    display: block;
+    padding: 7px 15px;
+    margin-bottom: -1px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}
+
+a.list-group-item2:hover {
+    text-decoration: none;
+    background-color: #8080C0;
+   color:white;
+}
+
+
+a.list-group-item:hover {
+    text-decoration: none;
+    background-color: #8080C0;
+   color:white;
+}
+
+.list-group-item:first-child {
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+
+
+.list-group-item2 {
+    position: relative;
+    display: block;
+    padding: 5px 5px;
+    margin-bottom: -1px;
+    background-color: #F5FFEC;
+    border: 1px solid #BB225D;
+}
+
+
+.navbar-inverse {
+    background-color: #3b5998;
+    /*90A4AE*/
+    /*4CAF50*/
+    /*095D9E*/
+/*#6f5499;*/
+/*4CAF50*/
+/*#f4511e*/
+/*6f5499*/
+    border-radius: 0;
+    border: 0;
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #FFFFFF;
+    }
+
+
+.navbar-inverse .navbar-brand {
+    color: #FFFFFF;
+}
+
+    .navbar-inverse .navbar-brand:hover {
+        color: #2c3e50;
+    }
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #000000;
+    /*2c3e50*/
+}
+
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, navbar-inverse .navbar-nav > .active > a:focus {
+    color: #fff;
+    background-color: #7171B9;
+}
+
+.AccountOfficer_navbar-header {
+    float:left;
+    padding:15px;
+    text-align:center;
+    width:100%;
+    font-size:20px;  
+    
+}
+
+.AccountOfficer_navbar-brand {
+    float:none;
+}
+
+.fiAdmitCard{
+
+     background: #6C6CFF !important;
+    font-family: 'SolaimanLipi', Arial, sans-serif !important;
+    font-size: 15px ;
+
+}

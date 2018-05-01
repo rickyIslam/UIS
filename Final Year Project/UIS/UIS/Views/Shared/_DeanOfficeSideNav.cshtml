@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <script src="~/ckeditor/ckeditor.js"></script>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="~/Content/CustomBootstrap.css" rel="stylesheet" />
+
+
+</head>
+<body>
+
+    @* Navbar starts Here *@
+    <nav class="my-navbar navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="AccountOfficer_navbar-header">
+           
+            @*<p class="AccountOfficer_navbar-brand" style="color:white;">logged in as: <b style="text-decoration:underline">anisulIslam88</b></p>
+            <p class="AccountOfficer_navbar-brand" style="color:white;">Dean Office In Faculty Of: <b style="text-decoration:underline">CSE</b></p>*@
+
+            <h1 style="color:white;font-family:'Bookman Old Style';">Dean Office Window</h1>
+
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+ 
+    </nav>
+
+    @* Navbar Ends Here *@
+
+    @* Side table Strats here *@
+
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+    <div>&nbsp;</div>
+
+    <div class="row">
+        <div class="col-md-3">
+
+            <div class="container">
+                        
+                    <ul class="list-group">
+                        <a href="~/DeanOffice/admitCardStatus" class="list-group-item "><span class="glyphicon glyphicon-adjust"></span>&nbsp;<b>Change Admit Card Session</b></a>
+                        <a href="~/DeanOffice/EnrollmentStatus" class="list-group-item "><span class="glyphicon glyphicon-adjust"></span>&nbsp;<b>Change Enrollment Status</b></a>
+                        <a href="~/DeanOffice/enrollReq" class="list-group-item "><span class="glyphicon glyphicon-list"></span>&nbsp;<b>List Of Enrolled Application</b></a>
+                        <a href="~/DeanOffice/FiEnrollReq" class="list-group-item "><span class="glyphicon glyphicon-list"></span>&nbsp;<b>List Of FI Enrolled Application</b></a>
+                        <a href="~/Account/logOut" class="list-group-item "><span class="glyphicon glyphicon-eject"></span>&nbsp;<b>Log Out</b></a>
+                            @*<a href="~/" class="list-group-item"><span class="glyphicon glyphicon-edit"></span>&nbsp;<b>Empty</b></a>
+                            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-edit"></span>&nbsp;<b>Empty</b></a>
+                            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-edit"></span>&nbsp;<b>Empty</b></a>
+                            <a href="#" class="list-group-item"><span class="glyphicon glyphicon-edit"></span>&nbsp;<b>Empty</b></a>*@
+         
+</ul>
+
+            </div>
+
+        </div>
+        <div class="col-md-9">
+
+            <div class="container body-content">
+                @RenderBody()
+                <hr />
+                
+            </div>
+
+        </div>
+        @*<footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>*@
+    </div>
+
+   
+
+   
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

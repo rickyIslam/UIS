@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "fiReceiptId";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+}
+
+
+<h1 style="color:red;text-decoration:underline; text-align:center;">FI Course Admit Card Download </h1>
+
+
+
+<div>&nbsp; </div>
+<div>&nbsp;</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-8">
+            <div class="panel-group">
+                <div class="panel panel-success">
+                    <div class="panel-heading">Change Enrolling Status</div>
+                    <div class="panel-body">
+
+                        @using (Html.BeginForm("fiAdmitCheck", "DeanOffice", new { faculty = "CSE" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+
+                            @Html.AntiForgeryToken()
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label for="usr">Receipt Number:</label>
+                                    <input type="text" class="form-control" style="width:100%" id="receiptId" name="receiptId">
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Submit Information" class="btn btn-primary pull-right" />
+                            </div>
+
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+
+<div>&nbsp; </div>
+<div>&nbsp;</div>
+

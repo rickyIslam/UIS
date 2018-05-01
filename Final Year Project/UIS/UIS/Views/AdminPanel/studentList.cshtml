@@ -1,0 +1,13 @@
+﻿@using UIS.Models;
+@{
+    ViewBag.Title = "studentList";
+    Layout = "~/Views/Shared/_AdminSideNav.cshtml";
+}
+
+
+<h2 style="text-align:center; font-family:Century;text-decoration:underline;">Student List</h2>
+@foreach (Student student in Model)
+{
+    <p style="font-size:35px;"><a href="@Href("~/AdminPanel/redirection/" + student.studentId)"><span class="glyphicon glyphicon-phone"></span>&nbsp;<b>@student.fullName</b></a></p>
+
+}

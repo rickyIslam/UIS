@@ -1,0 +1,20 @@
+﻿@model UIS.Models.Post
+@{
+    ViewBag.Title = "AdminPostDetails";
+}
+
+<h2>বিস্তারিত পোষ্ট</h2>
+<h2>@ViewBag.Message</h2>
+<div class="panel-body panel-success">
+
+    @if (Session["userNick"] == null)
+    {
+        <h2 style="color:red;">পোষ্ট করতে চাইলে <a href="~/Blog/LogInStudent">লগিন</a> করুন</h2>
+    }
+
+    else
+    {
+        <span>@PostHelperDetails.Render(Model, Html, true, true, false,true)</span>
+    }
+
+</div>

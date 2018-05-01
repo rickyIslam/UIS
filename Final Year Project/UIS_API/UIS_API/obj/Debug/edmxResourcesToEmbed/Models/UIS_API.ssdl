@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="UISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PostID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="nvarchar(max)" />
+    <Property Name="Body" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="MailAuth">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="code" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="nvarchar(max)" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="Image" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="studentId" />
+    </Key>
+    <Property Name="studentId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="fullName" Type="nvarchar(max)" />
+    <Property Name="nickName" Type="nvarchar(max)" />
+    <Property Name="Dob" Type="nvarchar" MaxLength="50" />
+    <Property Name="Faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="Registration" Type="nvarchar" MaxLength="50" />
+    <Property Name="Session" Type="nvarchar" MaxLength="50" />
+    <Property Name="Hall" Type="nvarchar(max)" />
+    <Property Name="Father" Type="nvarchar(max)" />
+    <Property Name="Mother" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="parmanentAddress" Type="nvarchar(max)" />
+    <Property Name="Photo" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_Comments_Posts">
+    <End Role="Posts" Type="Self.Posts" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Posts_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Posts" Type="Self.Posts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="studentId" />
+      </Principal>
+      <Dependent Role="Posts">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="UISModelStoreContainer">
+    <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MailAuth" EntityType="Self.MailAuth" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Comments_Posts" Association="Self.FK_Comments_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Posts_Student" Association="Self.FK_Posts_Student">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="Posts" EntitySet="Posts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

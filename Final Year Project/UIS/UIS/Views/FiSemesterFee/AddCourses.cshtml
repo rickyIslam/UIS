@@ -1,0 +1,60 @@
+﻿@using UIS.Models;
+@{
+    ViewBag.Title = "AddCourses";
+    Layout = "~/Views/Shared/_StudentInfoSideNav.cshtml";
+}
+
+<h1 style="text-align:center; font-family:Century;text-decoration:underline;">Your Selected FI The Courses Below</h1>
+<div>&nbsp;</div>
+<h2 style="text-align:center; font-family:'Times New Roman';">Total Credit Hour: @Session["tch"].ToString()</h2>
+<h2 style="text-align:center; font-family:'Times New Roman';">Total Payable Amount: @Session["tam"].ToString()</h2>
+
+<table class="table table-bordered">
+
+    <thead>
+        <tr>
+            <th>Course Code</th>
+            <th>Course Title</th>
+            <th>Credit Hour</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+
+
+        @{
+            foreach (FiEnrollment item in (List<FiEnrollment>)Session["cart"])
+            {
+                <tr>
+
+
+                    <td>@item.Courses.courseCode</td>
+                    <td>@item.Courses.courseTitle</td>
+                    <td>@item.Courses.creditHour</td>
+                    <td>@Html.ActionLink("Remove This Course", "RemoveCourses", "FiSemesterFee", new { courseCode = item.Courses.courseCode }, null)</td>
+
+                </tr>
+
+            }
+        }
+
+
+
+    </tbody>
+
+</table>
+<br />
+@*<td>@Html.ActionLink("Add More Courses", "FiCourses", "SemesterFee")</td>*@
+
+<div class="row">
+    <div class="pull-left">
+        <td><a href="@Href("~/FiSemesterFee/FiCourses/")">Add More Course</a></td>
+    </div>
+
+    <div class="pull-right">
+        <td><a href="@Href("~/FiSemesterFee/addToDatabase/")">Next >>></a></td>
+    </div>
+
+</div>

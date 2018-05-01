@@ -1,0 +1,139 @@
+﻿@using UIS.Models;
+@model IEnumerable<SemesterFee>
+
+@{
+    ViewBag.Title = "HallFeeInfoCheck";
+    Layout = "~/Views/Shared/_HallOfficerSideNav.cshtml";
+    int count = 0;
+}
+
+<h2 style="text-decoration: underline;">Hall Fee Status:</h2>
+
+@{
+
+    if (ViewBag.colourStatus == "1")
+    {
+        <h1 style="color:green;">@ViewBag.HallFeeStatus</h1>
+
+        <div>&nbsp;</div>
+
+        <h2 style="text-decoration: underline;">Enrollment Application Status:</h2>
+
+        //if (Model != null)
+        //{
+            foreach (var TempBank in Model)
+            {
+                count = count + 1 ;
+
+                //Tabel Is Starteed From Here .....
+                <div class="row">
+                    <div>&nbsp;</div>
+                    <div class="col-md-6">
+                        <ul class="list-group">
+
+                            <li class="list-group-item2"><b>Student ID:</b>@TempBank.studentId</li>
+                            <li class="list-group-item2"><b>Faculty Of:</b>@TempBank.faculty</li>
+                            <li class="list-group-item2"><b>Date & Time Of Pay:</b>@TempBank.dateTime</li>
+
+                            @{
+
+                string dbPayableSemester = TempBank.payForSemester;
+                string payableSemester = null;
+                if (dbPayableSemester == "1")
+                {
+                    payableSemester = "Level:1 / Semester:1";
+                }
+                if (dbPayableSemester == "2")
+                {
+                    payableSemester = "Level:1 / Semester:2";
+                }
+                if (dbPayableSemester == "3")
+                {
+                    payableSemester = "Level:2 / Semester:1";
+                }
+                if (dbPayableSemester == "4")
+                {
+                    payableSemester = "Level:2 / Semester:2";
+                }
+                if (dbPayableSemester == "5")
+                {
+                    payableSemester = "Level:3 / Semester:1";
+                }
+                if (dbPayableSemester == "6")
+                {
+                    payableSemester = "Level:3 / Semester:2";
+                }
+                if (dbPayableSemester == "7")
+                {
+                    payableSemester = "Level:4 / Semester:1";
+                }
+                if (dbPayableSemester == "8")
+                {
+                    payableSemester = "Level:4 / Semester:2";
+                }
+
+                            }
+
+                            <li class="list-group-item2"><b>Pay For Semester:</b>@payableSemester</li>
+                            <li class="list-group-item2"><b>Receipt Id:</b> @TempBank.receiptId</li>
+                            <li class="list-group-item2"><b>Amount:</b> @TempBank.amount</li>
+                            <li class="list-group-item2"><b>Status:</b><b style="color:green; text-align:center;">Given Transaction Is Correct ! You May Proceed ...</b></li>
+                        </ul>
+
+                        @using (Html.BeginForm("HallApprove", "HallOfficer", new { studentId = @TempBank.studentId, payForSemester = @TempBank.payForSemester }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            // @Html.AntiForgeryToken()
+
+                            <input type="submit" value="Approve This Student" class="btn btn-success" style="float:right" />
+
+                            <input type="submit" value="Back" class="btn btn-success" style="float:left" />
+
+
+                        }
+
+
+
+
+
+                    </div>
+
+                    <div class="col-md-6">
+
+
+                    </div>
+
+
+                </div>
+
+            }
+            
+           
+                if(count==0)
+                {
+                     <h1 style="color:red;">Please, Apply For Enrollment First ....</h1>
+                    count = 0;
+                }
+                
+           
+
+
+        @*}
+
+        else
+        {
+            <h1 style="color:red;">Dear Student !!! Please, Apply For Enrollment First ....</h1>
+        }*@
+
+
+
+    }
+    else
+    {
+        <h1 style="color:red;">@ViewBag.HallFeeStatus</h1>
+    }
+
+
+}
+
+<div>&nbsp;</div>
+

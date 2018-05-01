@@ -1,0 +1,108 @@
+﻿@using UIS.Models;
+@model IEnumerable<Student>
+@{
+    ViewBag.Title = "studentShip";
+    Layout = "~/Views/Shared/_shudentShipHeader.cshtml";
+}
+
+
+@{
+    foreach (var item in Model)
+    {
+
+
+        <div class="row">
+
+            <div class="col-md-2">
+
+            </div>
+
+            <div class="col-md-8">
+
+                <img src="~/Picture/pstu_logo.jpg" class="img-rounded" style="display:block;margin:0 auto;" alt="pstu logo" width="150" height="150">
+                <h3 style="font-family:'Lucida Calligraphy'; color:black; text-align:center; ">Faculty Of Computer Science and Engineering</h3>
+
+                <h2 style="font-family: 'Lucida Calligraphy'; color: black; text-align: center; ">Patuakhali Science and Technology University</h2>
+                <p style="font-family: 'Lucida Calligraphy'; color: black; text-align: center; ">Dumki, Patuakhali-8602, Bangladesh</p>
+                <div>&nbsp;</div>
+                <p style="font-family: 'Lucida Calligraphy'; color: black; text-align: center; ">Phone: 88-04427-56331, Fax: 88-04427-56009, 56112, Email: deancse@pstu.ac.bd</p>
+                <div>&nbsp;</div>
+
+                <h1 style="font-family:'Lucida Calligraphy'; color:black; text-align:center;text-decoration:underline; ">TO WHOM IT MAY CONCERN</h1>
+                <div>&nbsp;</div>
+                <p style="font-family:'Lucida Calligraphy';font-size:large; text-align:justify; ">
+
+                    This is to certify that
+                    <b style="font-family:'Old English Text MT'; font-size:x-large;">@item.fullName </b>
+                    Son/Daughter Of <b style="font-family:'Old English Text MT'; font-size:x-large;">@item.Father</b>
+                    Vill/Town <b style="font-family:'Old English Text MT'; font-size:x-large;">@item.Town</b>
+                    P.O <b style="font-family:'Old English Text MT'; font-size:x-large;">@item.Po</b>
+                    P.S <b style="font-family:'Old English Text MT'; font-size:x-large;">@item.Ps</b>
+                    Dist <b style="font-family:'Old English Text MT'; font-size:x-large;">Chuadanga</b> Is regular student Of <b style="font-family:'Old English Text MT'; font-size:x-large;"> B.Sc Engg </b> (Computer Science and Engineering),
+                    <b style="font-family:'Old English Text MT'; font-size:x-large;"> @Session["currentState"] </b>
+                    <b style="font-family:'Old English Text MT'; font-size:x-large;">Faculty of Computer Science and Engineering </b> of Patuakhali Science and Technology University, having
+                    Registration No.<b style="font-family:'Old English Text MT'; font-size:x-large;"> @item.Registration </b>
+                    Session <b style="font-family:'Old English Text MT'; font-size:x-large;">@item.Session</b>
+                    has successfully completed Previous Semester.
+
+                </p>
+
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+
+                <p style="font-family: 'Lucida Calligraphy'; font-size: large; text-align: justify;">
+
+                    To the best of my knowledge he/she bears a good moral character and did not take part in any activity subversive of the state or of the discipline of PSTU
+
+                </p>
+
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+
+                <p style="font-family:'Lucida Calligraphy';font-size:large;">
+
+                    I wish him/her every success in life
+
+                </p>
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+
+                <div class="row">
+                    <div class="pull-left">
+                        <p style="font-family:'Times New Roman';font-size:large; text-align:center;">(Approved By)</p>
+                        <p style="font-family: 'Times New Roman'; font-size: small; text-align: center;">Md. Nurur Haque</p>
+                        <p style="font-family: 'Times New Roman'; font-size: small; text-align: center;">Administrative Officer</p>
+                        <p style="font-family: 'Times New Roman'; font-size: small; text-align: center;">CSE Faculty,PSTU</p>
+                        <p style="font-family:'Lucida Calligraphy';font-size:small;">@DateTime.Now</p>
+                    </div>
+
+                    <div class="pull-right">
+
+                        <p style="font-family:'Times New Roman';font-size:large; text-align:center;">(Approved By)</p>
+                        <p style="font-family: 'Times New Roman'; font-size: small; text-align: center;">Mohammad Jamal Hossain</p>
+                        <p style="font-family: 'Times New Roman'; font-size: small; text-align: center;">Dean, Faculty Of CSE</p>
+                        <p style="font-family: 'Times New Roman'; font-size: small; text-align: center;">Dumki, PSTU</p>
+                        <p style="font-family:'Lucida Calligraphy';font-size:small;">@DateTime.Now</p>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-2">
+
+            </div>
+
+        </div>
+
+
+
+
+    }
+}
+
+
+
+
+

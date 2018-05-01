@@ -1,0 +1,150 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Global.cshtml";
+}
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+<div class="row">
+    <div class="pull-left">
+        <h4 style="text-align:center; font-family:Century;color:red;">Powered By AngularJS</h4>
+    </div>
+    <div class="pull-right">
+
+        <a href="http://localhost:8024/api/fiEnrolledApi"><h4 style="font-family:Century;color:red;text-decoration:underline;">Click Here To Check Web API</h4></a>
+    </div>
+
+</div>
+<h3 style="text-align:center; font-family:Century;text-decoration:underline;">Make Your Query Over Here...</h3>
+<div ng-controller="fiEnrolledList">
+
+    <div class="container">
+        <div class="well">
+            <div class="row">
+
+                <div class="col-md-2">
+
+                </div>
+
+                <div class="col-md-8">
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="sel1">Session:</label>
+                                <select class="form-control" ng-model="session" id="enrolledSemester" name="enrolledSemester">
+                                    <option value="2013-14">Session 2013-14</option>
+                                    <option value="2014-15">Session 2014-15</option>
+                                    <option value="2015-16">Session 2015-16</option>
+                                    <option value="2016-17">Session 2016-17</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="sel1">Faculty:</label>
+                                <select class="form-control" ng-model="faculty" id="enrolledSemester" name="enrolledSemester">
+                                    <option value="CSE">CSE</option>
+                                    <option value="ag">Agriculture</option>
+                                    <option value="fish">Fisheries</option>
+                                    <option value="nfs">Nutrition & Food Science</option>
+                                    <option value="dm">Disester Managment</option>
+                                    <option value="dvm">Doctor Of Veterenary Medicine</option>
+                                    <option value="ah">Animal Husbendry</option>
+                                    <option value="lm">Land Managment & Administration </option>
+                                    <option value="bba">Buisness Managment and Administration </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="sel1">Semester:</label>
+                                <select class="form-control" ng-model="semester" id="enrolledSemester" name="enrolledSemester">
+                                    <option value="1">Level:1 / Semester:1</option>
+                                    <option value="2">Level:1 / Semester:2</option>
+                                    <option value="3">Level:2 / Semester:1</option>
+                                    <option value="4">Level:2 / Semester:2</option>
+                                    <option value="5">Level:3 / Semester:1</option>
+                                    <option value="6">Level:3 / Semester:2</option>
+                                    <option value="7">Level:4 / Semester:1</option>
+                                    <option value="8">Level:4 / Semester:2</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="sel1">Action:</label>
+                                <div>
+                                    <input type="submit" class="btn btn-primary" ng-click="saveDate()" value="{{btnText}}" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-2"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    @* ------------------- *@
+
+    <div>&nbsp;</div>
+
+    <div ng-show="toggle">
+        <h3 style=" text-align:center; font-family:century;text-decoration:underline;">
+            List Of FI Enrolled Students | Faculty: {{faculty}} | Semester: {{semester}}
+        </h3>
+        <table class="table table-hover">
+            <thead>
+                <tr class="danger">
+                    <th>Student ID</th>
+                    <th>Full Name</th>
+                    <th>Registration ID</th>
+                    <th>Session</th>
+                    <th>Phone No</th>
+                    <th>Emial</th>
+
+                </tr>
+            </thead>
+            <tbody ng-repeat="e in msg">
+                <tr class="success">
+                    <td>{{e.studentId}}</td>
+                    <td>{{e.name}}</td>
+                    <td>{{e.registration}}</td>
+                    <td>{{e.session}}</td>
+                    <td>{{e.phone}}</td>
+                    <td>{{e.email}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+</div>
+
+@* ------------------- *@
+
+
+
+
+
+
+@* --------------------------------------------------------------------------------------------------------------------------------------------------- *@
+
