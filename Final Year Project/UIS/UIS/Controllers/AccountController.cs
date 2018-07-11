@@ -278,7 +278,7 @@ namespace UIS.Controllers
                 msg.Body = "Dear User !!! Thanks For Your Interest. Your Security Code is " + password + ". Please Enter This Code For Processing Further Steps.";
                 SmtpClient sc = new SmtpClient("smtp.gmail.com");
                 sc.Port = 25;
-                sc.Credentials = new NetworkCredential("mdrickyislam@gmail.com", "12357890");
+                sc.Credentials = new NetworkCredential("mdrickyislam@gmail.com", "****");
                 sc.EnableSsl = true;
                 sc.Send(msg);
 
